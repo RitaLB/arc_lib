@@ -1,0 +1,47 @@
+* tp_NAND
+
+*PARAMETROS
+.include 32nm_HP.pm
+
+* Declarando Fontes de tensão
+Vvdd vdd gnd 1
+
+* Declaração das fontes
+Va a gnd PWL (0n 1 6n 1 6.01n 0 8n 0 8.01n 1 10n 1)
+Vb b gnd PWL (0n 1 2n 1 2.01n 0 4n 0 4.01n 1 10n 1)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up (em paralelo)
+MpA vdd a s vdd PMOS w=140n l=32n
+MpB vdd b s vdd PMOS w=140n l=32n
+
+* Declarando transistores redepull down (em sequência)
+MnA s a n1 gnd NMOS w=70n l=32n
+MnB n1 b gnd gnd NMOS w=70n l=32n
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 11ns com passo de 0.1ns
+.tran 0.1ns 11ns 
+
+* Medindo tempo de propagação:
+
+* Arco 1 (1B)
+.measure tran tplh_1B trig v(b) val= '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 1
+
+.measure tran tphl_1B trig v(b) val= '0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 1
+
+* Arco 2 (A1)
+.measure tran tplh_A1 trig v(a) val = '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 2
+
+.measure tran tphl_A1 trig v(a) val ='0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 2
+
+*Medindo energia:
+.measure tran A_int INTEG i(Va) from= 0n to = 10n
+.measure tran B_int INTEG i(Vb) from= 0n to = 10n
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to = 10n
+
+* Fim do Arquivo SPICE
+.end

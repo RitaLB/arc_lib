@@ -1,0 +1,65 @@
+* tp_AoI not(A+(B.C))
+
+*PARAMETROS
+.include 32nm_HP.pm
+
+* Declarando Fontes de tensão
+Vvdd vdd gnd 1
+
+* Declaração das fontes
+Va a gnd PWL (0n 0 2n 0 2.01n 1 4n 1 4.01n 0 12n 0 12.01n 1 14n 1 14.01n 0 18n 0 18.01n 1 20n 1  20.01n 0 26n 0)
+Vb b gnd PWL (0n 0 8n 0 8.01n 1 10n 1 10.01n 0 16n 0 16.01n 1 26n 1)
+Vc c gnd PWL (0n 0 6n 0 6.01 1 16n 1 16.01n 0 22n 0 22.01n 1 24n 1 24.01n 0 26n 0)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up (B e C em paralelo e A em sequência)
+MpA n1 a s vdd PMOS w=140n l=32n
+MpB vdd b n1 vdd PMOS w=140n l=32n
+MpC vdd c n1 vdd PMOS w=140n l=32n
+
+* Declarando transistores redepull down (B e C em sequência e A em paralelo)
+MnA s a gnd gnd NMOS w=70n l=32n
+MnB s b n2 gnd NMOS w=70n l=32n
+MnC n2 c gnd gnd NMOS w=70n l=32n
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 27ns com passo de 0.1ns
+.tran 0.1ns 27ns 
+
+* Medindo tempo de propagação:
+
+* Arco 1 (A00)
+.measure tran tphl_A00 trig v(a) val= '0.5*0.9' rise= 1 targ v(s) val='0.5*0.9' fall = 1
+
+.measure tran tplh_A00 trig v(a) val= '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 1
+
+* Arco 2 (0B1)
+.measure tran tphl_0B1 trig v(b) val= '0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 2
+
+.measure tran tplh_0B1 trig v(b) val= '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 2
+
+* Arco 3 (A01)
+.measure tran tphl_A01 trig v(a) val= '0.5*0.9' rise= 2  targ v(s) val='0.5*0.9' fall = 3
+
+.measure tran tplh_A01 trig v(a) val= '0.5*0.9' fall =2  targ v(s) val = '0.5*0.9' rise = 3
+
+* Arco 4 (A10)
+.measure tran tphl_A10 trig v(a) val= '0.5*0.9' rise= 3  targ v(s) val='0.5*0.9' fall = 4
+
+.measure tran tplh_A10 trig v(a) val= '0.5*0.9' fall =3  targ v(s) val = '0.5*0.9' rise = 4
+
+* Arco 5 (01C)
+.measure tran tphl_01C trig v(c) val= '0.5*0.9' rise= 2  targ v(s) val='0.5*0.9' fall = 5
+
+.measure tran tplh_01C trig v(c) val= '0.5*0.9' fall =2  targ v(s) val = '0.5*0.9' rise = 5
+
+*Medindo energia:
+.measure tran A_int INTEG i(Va) from= 0n to= 26n
+.measure tran B_int INTEG i(Vb) from= 0n to= 26n
+.measure tran C_int INTEG i(Vc) from= 0n to= 26n
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to = 26n
+* Fim do Arquivo SPICE
+.end

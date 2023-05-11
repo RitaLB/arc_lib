@@ -1,0 +1,65 @@
+*tp_not((A+B).C)
+
+*PARAMETROS
+.include 32nm_HP.pm
+
+* Declarando Fontes de tensão
+Vvdd vdd gnd 1
+
+* Declaração das fontes
+Va a gnd PWL (0n 0 6n 0 6.01n 1 8n 1 8.01n 0 16n 0 16.01n 1 22n 1)
+Vb b gnd PWL (0n 0 2n 0 2.01n 1 4n 1 4.01n 0 10n 0 10.01n 1 16n 1 16.01n 0 22n 0)
+Vc c gnd PWL (0n 1 10n 1 10.01 0 12n 0 12.01n 1 14n 1 14.01n 0 18n 0 18.01n 1 20n 1 20.01n 0 22n 0)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up (A e B em sequência e C em paralelo)
+MpA vdd a n1 vdd PMOS w=140n l=32n
+MpB n1 b s vdd PMOS w=140n l=32n
+MpC vdd c s vdd PMOS w=140n l=32n
+
+* Declarando transistores redepull down (A e B em paralelo e C em sequência)
+MnA s a n2 gnd NMOS w=70n l=32n
+MnB s b n2 gnd NMOS w=70n l=32n
+MnC n2 c gnd gnd NMOS w=70n l=32n
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 23ns com passo de 0.1ns
+.tran 0.1ns 23ns 
+
+* Medindo tempo de propagação:
+
+* Arco 1 (0B1)
+* r
+.measure tran tphl_0B1 trig v(b) val= '0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 1
+*s
+.measure tran tplh_0B1 trig v(b) val= '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 1
+
+* Arco 2 (A01)
+*t
+.measure tran tphl_A01 trig v(a) val= '0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 2
+*v
+.measure tran tplh_A01 trig v(a) val= '0.5*0.9' fall =1  targ v(s) val = '0.5*0.9' rise = 2
+
+* Arco 3 (01C)
+*w
+.measure tran tphl_01C trig v(c) val= '0.5*0.9' rise= 1  targ v(s) val = '0.5*0.9' fall = 3
+*x
+.measure tran tplh_01C trig v(c) val= '0.5*0.9' fall =2  targ v(s) val = '0.5*0.9' rise = 3
+
+* Arco 4 (10C)
+*y
+.measure tran tphl_10C trig v(c) val= '0.5*0.9' rise =2  targ v(s) val='0.5*0.9' fall = 4
+*z
+.measure tran tplh_10C trig v(c) val= '0.5*0.9' fall =3  targ v(s) val = '0.5*0.9' rise = 4
+
+*Medindo energia:
+.measure tran A_int INTEG i(Va) from= 0n to= 22n
+.measure tran B_int INTEG i(Vb) from= 0n to= 22n
+.measure tran C_int INTEG i(Vc) from= 0n to= 22n
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to= 22n
+
+* Fim do Arquivo SPICE
+.end
