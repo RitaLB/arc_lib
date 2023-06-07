@@ -39,8 +39,6 @@ cload s gnd 1f
 .measure tran tphl_A1 trig v(a) val ='0.5*0.9' rise= 1  targ v(s) val='0.5*0.9' fall = 2
 
 *Medindo energia:
-.measure tran A_int INTEG i(Va) from= 0n to = 10n
-.measure tran B_int INTEG i(Vb) from= 0n to = 10n
 .measure tran Vdd_int INTEG i(Vvdd) from= 0n to = 10n
 
 * Fim do Arquivo SPICE
