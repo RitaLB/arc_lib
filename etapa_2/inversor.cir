@@ -1,0 +1,20 @@
+*inversor
+
+.include "7nm_TT.pm"
+.param supply=0.7V
+
+Vvdd vdd gnd supply
+Vvss vss gnd 0V
+Vin in gnd pwl (0n 0 10n 0 10.01n supply 20n supply 20.01n 0)
+
+Mp1 vdd in out vdd pmos_rvt nfin=3
+Mn1 out in gnd vss nmos_rvt nfin=3
+
+.tran 0.01ns 40ns
+
+.measure tran tphl trig v(in) val='0.5*supply' rise=1 targ v(out) val='0.5*supply' fall=1
+.measure tran tplh trig v(in) val='0.5*supply' fall=1 targ v(out) val='0.5*supply' rise=1
+
+.measure tran power avg p(Vvdd) from=0n to=40n
+
+.end
