@@ -1,0 +1,3 @@
+há dois tipos de variável:
+let foo = 5; // imutável
+let mut bar = 5; // mutável
