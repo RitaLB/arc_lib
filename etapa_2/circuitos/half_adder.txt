@@ -1,0 +1,62 @@
+* half_adder
+
+*OBS: Fontes com tabela verdade
+*OBS2: FALTA RESOLVER O NEGADO DO COUT E SUM
+
+*PARAMETROS
+.include 7nm_TT.pm
+
+* Declarando Fontes de tensão 
+Vvdd vdd gnd 0.7
+
+* Declaração das fontes
+Va a gnd PWL (0n 0 8n 0 8.01n 0.7 20n 0.7 )
+Vb b gnd PWL (0n 0 4n 0 4.01n 0.7 8n 0.7 8.01n 0 12n 0 12.01n 0.7 20n 0.7)
+Vcin cin gnd PWL (0n 0 2n 0 2.01n 0.7 4n 0.7 4.01n 0 6n 0 6.01n 0.7 8n 0.7 8.01n 0 10n 0 10.01n 0.7 12n 0.7 12.01n 0 14n 0 14.01n 0.7 20n 0.7)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up 
+MpA1 vdd a n1 vdd pmos_rvt nfin = 3
+MpCin1 n1 cin cout vdd pmos_rvt nfin = 3
+MpB1 vdd b n1 vdd pmos_rvt nfin = 3
+MpB2 vdd b n2 vdd pmos_rvt nfin = 3
+MpA2 n2 a cout vdd pmos_rvt nfin = 3
+MpA3 vdd a n3 vdd pmos_rvt nfin = 3
+MpB3 vdd b n3 vdd pmos_rvt nfin = 3
+Mpcin2 vdd cin n3 vdd pmos_rvt nfin = 3
+Mpcout n3 cout sum vdd pmos_rvt nfin = 3
+MpA4 vdd a n4 vdd pmos_rvt nfin = 3
+MpB4 n4 b n5 vdd pmos_rvt nfin = 3
+Mpcin3 n5 cin sum vdd pmos_rvt nfin = 3
+
+
+* Declarando transistores redepull down (em sequência)
+Mncin1 cout cin n6 gnd nmos_rvt nfin = 3
+MnA1 n6 a gnd gnd nmos_rvt nfin = 3
+MnB1 n6 b gnd gnd nmos_rvt nfin = 3
+MnA2 cout a n7 gnd nmos_rvt nfin = 3
+MnB2 n7 b gnd gnd nmos_rvt nfin = 3
+Mncout sum cout n8 gnd nmos_rvt nfin = 3
+MnA3 n8 a gnd gnd nmos_rvt nfin = 3
+MnB3 n8 b gnd gnd nmos_rvt nfin = 3
+Mncin2 n8 cin gnd gnd nmos_rvt nfin = 3
+Mncin3 sum cin n9 gnd nmos_rvt nfin = 3
+MnA4 n9 a n10 gnd nmos_rvt nfin = 3
+MnB4 n10 b gnd gnd nmos_rvt nfin = 3
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 23ns com passo de 0.1ns
+.tran 0.1ns 23ns 
+
+*Medindo energia:
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to= 22n
+
+
+*medindo potência total média:
+.measure tran Vdd_int avg p(Vvdd) from=0n to=22n
+
+* Fim do Arquivo SPICE
+.end

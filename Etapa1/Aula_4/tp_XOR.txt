@@ -1,0 +1,65 @@
+* tp_XOR
+
+*PARAMETROS
+.include 32nm_HP.pm
+
+* Declarando Fontes de tensão
+Vvdd vdd gnd 1
+
+* Declaração das fontes
+Va a gnd PWL (0n 0 6n 0 6.01n 1 8n 1 8.01n 0 12n 0 12.01n 1 14n 1 14.01n 0 16n 0 16.01n 1 22n 1)
+Vna na gnd PWL (0n 1 6n 1 6.01n 0 8n 0 8.01n 1 12n 1 12.01n 0 14n 0 14.01n 1 16n 1 16.01n 0 22n 0)
+Vb b gnd PWL (0n 0 2n 0 2.01n 1 4n 1 4.01n 0 10n 0 10.01n 1 16n 1 16.01n 0 18n 0 18.01n 1 20n 1 20.01n 0 22n 0)
+Vnb nb gnd PWL (0n 1 2n 1 2.01n 0 4n 0 4.01n 1 10n 1 10.01n 0 16n 0 16.01n 1 18n 1 18.01n 0 20n 0 20.01n 1 22n 1)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up 
+MpA vdd a n2 vdd PMOS w=140n l=32n
+MpNA vdd na n1 vdd PMOS w=140n l=32n
+MpB n1 b s vdd PMOS w=140n l=32n
+MpNB n2 nb s vdd PMOS w=140n l=32n
+
+* Declarando transistores redepull down (em sequência)
+MnA s a n3 gnd NMOS w=70n l=32n
+MnNA s na n4 gnd NMOS w=70n l=32n
+MnB n3 b gnd gnd NMOS w=70n l=32n
+MnNB n4 nb gnd gnd NMOS w=70n l=32n
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 23ns com passo de 0.1ns
+.tran 0.1ns 23ns 
+
+* Medindo tempo de propagação:
+
+* Arco 1 (0B)
+*r
+.measure tran tplh_0B trig v(b) val= '0.5*0.9' rise =1  targ v(s) val = '0.5*0.9' rise = 1
+*s
+.measure tran tphl_0B trig v(b) val= '0.5*0.9' fall= 1  targ v(s) val='0.5*0.9' fall = 1
+
+* Arco 2 (A0)
+*t
+.measure tran tplh_A0 trig v(a) val= '0.5*0.9' rise =1  targ v(s) val = '0.5*0.9' rise = 2
+*v
+.measure tran tphl_A0 trig v(a) val= '0.5*0.9' fall= 1  targ v(s) val='0.5*0.9' fall = 2
+
+* Arco 3 (A1)
+*w
+.measure tran tphl_A1 trig v(a) val= '0.5*0.9' rise= 2  targ v(s) val='0.5*0.9' fall = 3
+*x
+.measure tran tplh_A1 trig v(a) val= '0.5*0.9' fall =2  targ v(s) val = '0.5*0.9' rise = 4
+
+* Arco 4 (1B)
+*y
+.measure tran tphl_1B trig v(b) val= '0.5*0.9' rise =3  targ v(s) val='0.5*0.9' fall = 4
+*z
+.measure tran tplh_1B trig v(b) val= '0.5*0.9' fall =3  targ v(s) val = '0.5*0.9' rise = 5
+
+*Medindo energia:
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to= 22n
+
+* Fim do Arquivo SPICE
+.end

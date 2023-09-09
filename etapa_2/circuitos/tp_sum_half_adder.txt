@@ -1,0 +1,137 @@
+* tp_sum_half_adder
+
+*OBS: Fontes com arco de atraso
+*OBS2: FALTA RESOLVER O NEGADO DO COUT E SUM
+
+*PARAMETROS
+.include 7nm_TT.pm
+
+* Declarando Fontes de tensão 
+Vvdd vdd gnd 0.7
+
+* Declaração das fontes
+Va a gnd PWL (0n 0 10n 0 10.01n 0.7 12n 0.7 12.01n 0 20n 0 20.01n 0.7 22n 0.7 22.01n 0 30n 0 30.01n 0.7 32n 0.7 32.01n 0 36n 0 36.01n 0.7 38n 0.7 38.01n 0 40n 0 40.01n 0.7 64n 0.7)
+Vb b gnd PWL (0n 0 6n 0 6.01n 0.7 8n 0.7 8.01n 0 16n 0 16.01n 0.7 18n 0.7 18.01n 0 24n 0 24.01n 0.7 40n 0.7 40.01n 0 46n 0 46.01n 0.7 48n 0.7 48.01n 0 52n 0 52.01n 0.7 54n 0.7 54.01n 0 56n 0 56.01n 0.7 64n 0.7)
+Vcin cin gnd PWL (0n 0 2n 0 2.01n 0.7 4n 0.7 4.01n 0 14n 0 14.01n 0.7 24n 0.7 24.01n 0 26n 0 26.01n 0.7 28n 0.7 28.01n 0 34n 0 34.01n 0.7 40n 0.7 40.01n 0 42n 0 42.01n 0.7 44n 0.7 44.01n 0 50n 0 50.01n 0.7 56n 0.7 56.01n 0 58n 0 58.01n 0.7 60n 0.7 60.01n 0 64n 0)
+
+* Declarando o circuito
+
+* Declarando transistores rede pull up 
+MpA1 vdd a n1 vdd pmos_rvt nfin = 3
+MpCin1 n1 cin cout vdd pmos_rvt nfin = 3
+MpB1 vdd b n1 vdd pmos_rvt nfin = 3
+MpB2 vdd b n2 vdd pmos_rvt nfin = 3
+MpA2 n2 a cout vdd pmos_rvt nfin = 3
+MpA3 vdd a n3 vdd pmos_rvt nfin = 3
+MpB3 vdd b n3 vdd pmos_rvt nfin = 3
+Mpcin2 vdd cin n3 vdd pmos_rvt nfin = 3
+Mpcout n3 cout sum vdd pmos_rvt nfin = 3
+MpA4 vdd a n4 vdd pmos_rvt nfin = 3
+MpB4 n4 b n5 vdd pmos_rvt nfin = 3
+Mpcin3 n5 cin sum vdd pmos_rvt nfin = 3
+
+
+* Declarando transistores redepull down (em sequência)
+Mncin1 cout cin n6 gnd nmos_rvt nfin = 3
+MnA1 n6 a gnd gnd nmos_rvt nfin = 3
+MnB1 n6 b gnd gnd nmos_rvt nfin = 3
+MnA2 cout a n7 gnd nmos_rvt nfin = 3
+MnB2 n7 b gnd gnd nmos_rvt nfin = 3
+Mncout sum cout n8 gnd nmos_rvt nfin = 3
+MnA3 n8 a gnd gnd nmos_rvt nfin = 3
+MnB3 n8 b gnd gnd nmos_rvt nfin = 3
+Mncin2 n8 cin gnd gnd nmos_rvt nfin = 3
+Mncin3 sum cin n9 gnd nmos_rvt nfin = 3
+MnA4 n9 a n10 gnd nmos_rvt nfin = 3
+MnB4 n10 b gnd gnd nmos_rvt nfin = 3
+
+* colocando capacitor na saída
+cload s gnd 1f
+
+* Simulação Transiente de 64ns com passo de 0.1ns
+.tran 0.1ns 23ns 
+
+* Medindo tempo de propagação:
+
+* Arco 1 (00cin)
+*r
+.measure tran tplh_00cin trig v(cin) val= '0.5*0.7' rise =1  targ v(s) val = '0.5*0.7' rise = 1
+*s
+.measure tran tphl_00cin trig v(cin) val= '0.5*0.7' fall= 1  targ v(s) val='0.5*0.7' fall = 1
+
+* Arco 2 (0B0)
+*t
+.measure tran tplh_0B0 trig v(b) val= '0.5*0.7' rise =1  targ v(s) val = '0.5*0.7' rise = 2
+*v
+.measure tran tphl_0B0 trig v(b) val= '0.5*0.7' fall= 1  targ v(s) val='0.5*0.7' fall = 2
+
+* Arco 3 (A00)
+*w
+.measure tran tplh_A00 trig v(a) val= '0.5*0.7' rise= 1  targ v(s) val='0.5*0.7' rise = 3
+*x
+.measure tran tphl_A00 trig v(a) val= '0.5*0.7' fall =1  targ v(s) val = '0.5*0.7' fall = 3
+
+* Arco 4 (0B1)
+*y
+.measure tran tphl_0B1 trig v(b) val= '0.5*0.7' rise = 2  targ v(s) val='0.5*0.7' fall = 4
+*z
+.measure tran tplh_0B1 trig v(b) val= '0.5*0.7' fall = 2  targ v(s) val = '0.5*0.7' rise = 5
+
+* Arco 5 (A01)
+*y
+.measure tran tphl_A01 trig v(a) val= '0.5*0.7' rise = 2  targ v(s) val='0.5*0.7' fall = 5
+*z
+.measure tran tplh_A01 trig v(a) val= '0.5*0.7' fall = 2  targ v(s) val = '0.5*0.7' rise = 6
+
+* Arco 6 (01cin)
+*y
+.measure tran tphl_01cin trig v(cin) val= '0.5*0.7' rise = 3  targ v(s) val='0.5*0.7' fall = 6
+*z
+.measure tran tplh_01cin trig v(cin) val= '0.5*0.7' fall = 3  targ v(s) val = '0.5*0.7' rise = 7
+
+* Arco 7 (A10)
+*y
+.measure tran tphl_A10 trig v(a) val= '0.5*0.7' rise = 3  targ v(s) val='0.5*0.7' fall = 7
+*z
+.measure tran tplh_A10 trig v(a) val= '0.5*0.7' fall = 3  targ v(s) val = '0.5*0.7' rise = 8
+
+* Arco 8 (A11)
+*y
+.measure tran tplh_A11 trig v(a) val= '0.5*0.7' rise = 4  targ v(s) val='0.5*0.7' rise = 9
+*z
+.measure tran tphl_A11 trig v(a) val= '0.5*0.7' fall = 4  targ v(s) val = '0.5*0.7' fall = 9
+
+* Arco 9 (10cin)
+*y
+.measure tran tphl_10cin trig v(cin) val= '0.5*0.7' rise = 5  targ v(s) val='0.5*0.7' fall = 10
+*z
+.measure tran tplh_10cin trig v(cin) val= '0.5*0.7' fall = 5  targ v(s) val = '0.5*0.7' rise = 11
+
+* Arco 10 (1B0)
+*y
+.measure tran tphl_1B0 trig v(b) val= '0.5*0.7' rise = 4  targ v(s) val='0.5*0.7' fall = 11
+*z
+.measure tran tplh_1B0 trig v(b) val= '0.5*0.7' fall = 4  targ v(s) val = '0.5*0.7' rise = 12
+
+* Arco 11 (1B1)
+*y
+.measure tran tplh_1B1 trig v(b) val= '0.5*0.7' rise = 5  targ v(s) val='0.5*0.7' rise = 13
+*z
+.measure tran tphl_1B1 trig v(b) val= '0.5*0.7' fall = 5  targ v(s) val = '0.5*0.7' fall = 13
+
+* Arco 12 (11cin)
+*y
+.measure tran tplh_11cin trig v(cin) val= '0.5*0.7' rise = 7  targ v(s) val='0.5*0.7' rise = 14
+*z
+.measure tran tphl_11cin trig v(cin) val= '0.5*0.7' fall = 7  targ v(s) val = '0.5*0.7' fall = 14
+
+
+*Medindo energia:
+.measure tran Vdd_int INTEG i(Vvdd) from= 0n to= 64n
+
+
+*medindo potência total média:
+.measure tran Vdd_int avg p(Vvdd) from=0n to=64n
+
+* Fim do Arquivo SPICE
+.end

@@ -1,0 +1,7 @@
+* Declarando Fontes de tensão
+Vexemplo vcc gnd 7
+* Declaração das fontes
+* Simulação Transiente de 50ns com passo de 0.1ns
+.tran 0.1ns 50ns
+* Fim do Arquivo SPICE
+.end
