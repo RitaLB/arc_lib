@@ -71,21 +71,21 @@ pub mod find_arcos {
             }
         }
     }
-    arc
+    arc;
 }
 
-fn main() {
-    let saida: Vec<u8>  =  vec![ 1, 
-    1,
-    1,
-    0] ;
+//fn main() {
+  //  let saida: Vec<u8>  =  vec![ 1, 
+    //1,
+    //1,
+    //0] ;
 
-    let entradas: Vec<Vec<u8>> = vec![vec![0, 0, 1, 1], vec![0, 1, 0, 1]];
+//    let entradas: Vec<Vec<u8>> = vec![vec![0, 0, 1, 1], vec![0, 1, 0, 1]];
 
-
+//    arc = find_arcos(saida, 2, entradas);
 
     // Imprimir 'arc' após as remoções
-    for tupla in &arc {
-        println!("{:?}", tupla);
-        }
-}
+//    for tupla in &arc {
+//        println!("{:?}", tupla);
+//        }
+//}
