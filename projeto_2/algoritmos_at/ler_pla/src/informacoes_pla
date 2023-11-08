@@ -1,0 +1,8 @@
+pla regras reumo:
+
+se linha começa com " . " --> informação sobre entradas, saídas ou produtos ou fim de arquivo
+se linha começa com " # " --> comentário
+
+
+qqr outra coisa: informação da tabela
+
