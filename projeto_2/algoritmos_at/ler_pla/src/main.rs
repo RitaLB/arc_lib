@@ -1,6 +1,12 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+mod ler_pla;
+use ler_pla::ler_pla as pla;
 
+fn main(){
+    // Nome do arquivo que você deseja ler
+    let filename = "pla1.txt";
+    let minha_tabela:pla::TabelaVerdade = pla::ler_pla(filename.to_string());
+}
+/* 
 fn main() -> io::Result<()> {
     // Nome do arquivo que você deseja ler
     let filename = "pla1.txt";
@@ -19,14 +25,9 @@ fn main() -> io::Result<()> {
 
     // Itera pelas linhas do arquivo e imprime cada uma delas
     for line in reader.lines() {
-        processar_linha(line)
+        println!("{}", line?);
     }
 
     Ok(())
-}
+}*/
 
-fn processar_linha(linha: str ){
-    if linha[0] =! '.' && linha[0] =! '#'{
-        println!("{}", line?);
-    }
-}

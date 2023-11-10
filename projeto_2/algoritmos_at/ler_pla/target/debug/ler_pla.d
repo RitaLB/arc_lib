@@ -1,0 +1,1 @@
+/home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/ler_pla/target/debug/ler_pla: /home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/ler_pla/src/main.rs

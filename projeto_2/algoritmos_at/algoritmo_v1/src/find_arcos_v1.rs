@@ -1,9 +1,9 @@
 pub mod find_arcos_v1 {
     
-    pub fn find_arcos_v1(saida: &Vec<u8>, entradas: &Vec<Vec<u8>>) -> Vec<(u8, u8)> {
-        let linhas: usize = saida.len();
+    pub fn find_arcos_v1(saidas:  &Vec<Vec<u8>>, entradas: &Vec<Vec<u8>>) -> Vec<(u8, u8)> {
+        let linhas: usize = saidas[0].len();
         let mut arc: Vec<(u8, u8)> = criar_arcos(linhas);
-        check_mudanca_s(&mut arc,  saida);
+        check_mudanca_s(&mut arc,  &saidas);
         check_entradas(&mut arc, &entradas);
         return arc;
     }   
@@ -11,7 +11,6 @@ pub mod find_arcos_v1 {
     // criar vetor de tuplas com todos os arcos possíveis
     fn criar_arcos(linhas: usize) -> Vec<(u8, u8)>{
         let mut arc: Vec<(u8, u8)> = Vec::new();
-
 
         for k in 0..(linhas - 1) {
             let mut l = k + 1;
@@ -26,17 +25,18 @@ pub mod find_arcos_v1 {
 
     // selecionar arcos de mudança por arcos de s
     // colocando o & eu ocnsigo modificar diretamente o objeto parâmetro ?
-    fn check_mudanca_s(arc: &mut Vec<(u8, u8)>, saida: &Vec<u8> ){
+    fn check_mudanca_s(arc: &mut Vec<(u8, u8)>, saidas:  &Vec<Vec<u8>> ){
         let mut i = 0;
-
-        while i< arc.len() {
+        while i< (arc.len() *  saidas.len()){
             let(l, h) = arc[i];
-            if saida[l as usize] == saida[h as usize]{
-                arc.remove(i);
-            }
-            else {
-                i += 1;
-            }    
+            for saida in saidas{
+                if saida[l as usize] == saida[h as usize]{
+                    arc.remove(i);
+                }
+                else {
+                    i += 1;
+                }   
+            } 
         }
     }
 
