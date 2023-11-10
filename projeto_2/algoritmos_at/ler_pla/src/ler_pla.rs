@@ -13,7 +13,7 @@ pub mod ler_pla {
     
     impl TabelaVerdade {
         // Método para criar uma nova instância da tabela verdade com valores padrão
-        fn new() -> Self {
+        pub fn new() -> Self {
             TabelaVerdade {
                 n_outputs: 0,
                 n_inputs: 0,
@@ -22,10 +22,29 @@ pub mod ler_pla {
                 entradas: Vec::new(),
             }
         }
+
+        pub fn saidas(&self) -> &Vec<Vec<u8>>{
+            &self.saidas
+        }
+
+        pub fn entradas(&self) -> &Vec<Vec<u8>>{
+            &self.entradas
+        }
     }
 
-    pub fn ler_pla(filename: String)-> Result<TabelaVerdade, Box<dyn std::error::Error>>{
-    
+    // Função principal que lê o arquivo e processa as linhas
+    pub fn processar_pla(filename: &String) -> TabelaVerdade {
+        match ler_arquivo(filename) {
+            Ok(tabela_verdade) => tabela_verdade,
+            Err(err) => {
+                eprintln!("Erro ao processar o arquivo: {}", err);
+                TabelaVerdade::new() // Retorna uma tabela vazia em caso de erro
+            }
+        }
+    }
+
+    fn ler_arquivo(filename: &String)-> Result<TabelaVerdade, Box<dyn std::error::Error>>{
+            
         // instancia de tabela verdade para salvar os dados
         let mut tabela_verdade= TabelaVerdade::new();
         
@@ -45,6 +64,7 @@ pub mod ler_pla {
         Ok(tabela_verdade)
     }
 
+
     fn processar_linha(linha: &String, tabela_verdade: &mut TabelaVerdade) -> Result<(), Box<dyn std::error::Error>> {
         if let Some(primeiro_char) = linha.chars().nth(0) {
             // verifica se é uma informação sobre a tabela, comentário ou dado da tabela
@@ -52,11 +72,39 @@ pub mod ler_pla {
                 salvar_dado(linha, tabela_verdade);
             } else if primeiro_char != '#' {
                 println!("{}", linha);
+                salvar_linha_tabela(linha, tabela_verdade);
             }
         }
         Ok(())
     }
-    
+    fn salvar_linha_tabela(linha: &String, tabela_verdade: &mut TabelaVerdade){
+        // saidas: Vec<Vec<u8>>, entradas: Vec<Vec<u8>>,
+        let mut cont_i : usize = 0;
+        let mut entrada: Vec<u8>= vec![];
+        let mut saida: Vec<u8> = vec![];
+
+        for caractere in linha.chars() {
+            // Verifica se o caractere é um número (0-9) na tabela ASCII ou é indicador "-"
+            if caractere.is_digit(10){
+                if cont_i < tabela_verdade.n_inputs {
+                    entrada.push(caractere as u8 - b'0');
+                    cont_i = cont_i + 1;
+                } else {
+                    saida.push(caractere as u8 - b'0');
+                }
+            } else if caractere == '-'{
+                if cont_i <= tabela_verdade.n_inputs {
+                    entrada.push(0);
+                    cont_i = cont_i + 1;
+                } else {
+                    saida.push(0);
+                }
+            }
+        }
+        tabela_verdade.entradas.push(entrada);
+        tabela_verdade.saidas.push(saida);
+    }
+
     fn salvar_dado(linha: &String, tabela_verdade: &mut TabelaVerdade)-> Result<(), Box<dyn std::error::Error>>{
         let mut string_dado = String::new();
         for caractere in linha.chars() {
