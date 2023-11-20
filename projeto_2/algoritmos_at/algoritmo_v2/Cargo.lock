@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "algotitm_v3"
+name = "find_arcos_v2"
 version = "0.1.0"

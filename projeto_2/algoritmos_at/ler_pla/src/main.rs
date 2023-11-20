@@ -3,13 +3,22 @@ use ler_pla::ler_pla as pla;
 
 fn main(){
     // Nome do arquivo que você deseja ler
-    let filename = "src/pla1.txt";
+    let filename = "src/pla2.txt";
     let minha_tabela:pla::TabelaVerdade = pla::processar_pla(&filename.to_string());
     
+    print!("\nentradas\n");
     for vetor_interno in minha_tabela.entradas() {
         // Iterando sobre cada vetor interno
         for &elemento in vetor_interno {
-            print!("{} !", elemento);
+            print!("{}", elemento);
+        }
+        println!();  // Nova linha entre os vetores internos
+    }
+    print!("\nsaídas\n");
+    for vetor_interno in minha_tabela.saidas() {
+        // Iterando sobre cada vetor interno
+        for &elemento in vetor_interno {
+            print!("{}", elemento);
         }
         println!();  // Nova linha entre os vetores internos
     }
