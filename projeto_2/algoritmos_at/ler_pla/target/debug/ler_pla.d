@@ -1,1 +1,1 @@
-/home/ritinha/Documents/IC/projeto_2/algoritmos_at/ler_pla/target/debug/ler_pla: /home/ritinha/Documents/IC/projeto_2/algoritmos_at/ler_pla/src/ler_pla.rs /home/ritinha/Documents/IC/projeto_2/algoritmos_at/ler_pla/src/main.rs
+/home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/ler_pla/target/debug/ler_pla: /home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/ler_pla/src/ler_pla.rs /home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/ler_pla/src/main.rs
