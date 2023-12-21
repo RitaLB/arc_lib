@@ -1,7 +1,7 @@
 pub mod ler_pla {
     use std::fs::File;
     use std::io::{self, BufRead};
-    
+
     // structure para armazenar tabela verdade
     pub struct TabelaVerdade {
         n_outputs: usize,
@@ -30,6 +30,55 @@ pub mod ler_pla {
         pub fn entradas(&self) -> &Vec<Vec<u8>>{
             &self.entradas
         }
+
+        pub fn n_outputs(&self) -> usize {
+            self.n_outputs
+        }
+
+        pub fn n_inputs(&self) -> usize {
+            self.n_inputs
+        }
+
+        pub fn n_t_produtos(&self) -> usize {
+            self.n_t_produtos
+        }
+
+        // Método para imprimir a tabela verdade
+        pub fn imprimir_tabela(&self) {
+            // Imprimir cabeçalho
+            println!("self.entradas[0].len() = {}", self.entradas[0].len() );
+            println!("self.entradas.len() = {}", self.entradas.len() );
+            print!("| ");
+            for i in 0..self.n_inputs {
+                print!("I{} | ", i);
+            }
+            for i in 0..self.n_outputs {
+                print!("O{} | ", i);
+            }
+            println!();
+
+            // Imprimir separador
+            print!("+-");
+            for _ in 0..self.n_inputs {
+                print!("----+-");
+            }
+            for _ in 0..self.n_outputs {
+                print!("----+-");
+            }
+            println!();
+
+            // Imprimir linhas da tabela
+            for i in 0..self.entradas[0].len() {
+                print!("| ");
+                for j in 0..self.n_inputs {
+                    print!("{}  | ", self.entradas[j][i]);
+                }
+                for j in 0..self.n_outputs {
+                    print!("{}  | ", self.saidas[i][j]);
+                }
+                println!();
+            }
+        }
     }
 
     // Função principal que lê o arquivo e processa as linhas
@@ -44,11 +93,10 @@ pub mod ler_pla {
     }
 
     fn ler_arquivo(filename: &String)-> Result<TabelaVerdade, Box<dyn std::error::Error>>{
-            
+        
         // instancia de tabela verdade para salvar os dados
         let mut tabela_verdade= TabelaVerdade::new();
         
-    
         // Tenta abrir o arquivo em modo de leitura
         let file = File::open(&filename)?;
     
@@ -71,7 +119,7 @@ pub mod ler_pla {
             if primeiro_char =='.'{
                 salvar_dado(linha, tabela_verdade);
             } else if primeiro_char != '#' {
-                println!("{}", linha);
+                //println!("{}", linha);
                 salvar_linha_tabela(linha, tabela_verdade);
             }
         }
@@ -87,7 +135,12 @@ pub mod ler_pla {
             // Verifica se o caractere é um número (0-9) na tabela ASCII ou é indicador "-"
             if caractere.is_digit(10){
                 if cont_i < tabela_verdade.n_inputs {
-                    entrada.push(caractere as u8 - b'0');
+                    if let Some(inner_vector) = tabela_verdade.entradas.get_mut(cont_i) {
+                    inner_vector.push(caractere as u8 - b'0');           
+                    } else {
+                        tabela_verdade.entradas.resize_with(cont_i + 1, Vec::new);
+                        tabela_verdade.entradas[cont_i].push(caractere as u8 - b'0');
+                    }
                     cont_i = cont_i + 1;
                 } else {
                     saida.push(caractere as u8 - b'0');
@@ -101,7 +154,6 @@ pub mod ler_pla {
                 }
             }
         }
-        tabela_verdade.entradas.push(entrada);
         tabela_verdade.saidas.push(saida);
     }
 
@@ -114,9 +166,13 @@ pub mod ler_pla {
                 string_dado.push(caractere);
             }
         }
+
+
         if let Some(identificador) = linha.chars().nth(1) {
-            let dado: usize = string_dado.parse().unwrap();
-            
+            let mut dado: usize = 0;
+            if string_dado.len() > 0{
+                dado = string_dado.parse().unwrap();
+            }
             match identificador {
                 'p' => tabela_verdade.n_t_produtos = dado,
                 'i' => tabela_verdade.n_inputs = dado,
@@ -124,11 +180,6 @@ pub mod ler_pla {
                 'e' => println!("fim do arquivo"),
                 _ => println!("linha com erro"),
             }
-    
-            Ok(())
-        } else {
-            Err("Identificador não encontrado".into())
         }
-    }
-    
-}
+    } 
+} 

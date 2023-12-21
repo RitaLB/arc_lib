@@ -3,7 +3,7 @@ use ler_pla::ler_pla as pla;
 
 fn main(){
     // Nome do arquivo que você deseja ler
-    let filename = "src/pla2.txt";
+    let filename = "src/pla1.txt";
     let minha_tabela:pla::TabelaVerdade = pla::processar_pla(&filename.to_string());
     
     print!("\nentradas\n");
