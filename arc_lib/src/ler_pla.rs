@@ -108,7 +108,8 @@ pub mod ler_pla {
             let line = line_result?;
             processar_linha(&line, &mut tabela_verdade);
         }
-    
+        println!("n_inputs = {}", tabela_verdade.n_inputs());
+        println!("n_outputs = {}", tabela_verdade.n_outputs());
         Ok(tabela_verdade)
     }
 
@@ -130,7 +131,6 @@ pub mod ler_pla {
         let mut cont_i : usize = 0;
         let mut entrada: Vec<u8>= vec![];
         let mut saida: Vec<u8> = vec![];
-
         for caractere in linha.chars() {
             // Verifica se o caractere é um número (0-9) na tabela ASCII ou é indicador "-"
             if caractere.is_digit(10){
@@ -159,7 +159,13 @@ pub mod ler_pla {
 
     fn salvar_dado(linha: &String, tabela_verdade: &mut TabelaVerdade){
         let mut string_dado = String::new();
+        let mut string_identificador = String::new();
         for caractere in linha.chars() {
+
+            // Verifica se é uma letra
+            if caractere.is_alphabetic(){
+                string_identificador.push(caractere);
+            }
             // Verifica se o caractere é um número (0-9) na tabela ASCII
             if caractere.is_digit(10) {
                 // Concatena o caractere à string de números
@@ -167,7 +173,21 @@ pub mod ler_pla {
             }
         }
 
+        if string_identificador.len() > 0{
+            let mut dado: usize = 0;
+            if string_dado.len() > 0{
+                dado = string_dado.parse().unwrap();
+            }
+            match string_identificador.as_str() {
+                "p" => tabela_verdade.n_t_produtos = dado,
+                "i" => tabela_verdade.n_inputs = dado,
+                "o" => tabela_verdade.n_outputs = dado,
+                "e" => println!("fim do arquivo"),
+                _ => println!("linha com erro"),
+            }
+        }
 
+        /*
         if let Some(identificador) = linha.chars().nth(1) {
             let mut dado: usize = 0;
             if string_dado.len() > 0{
@@ -181,5 +201,6 @@ pub mod ler_pla {
                 _ => println!("linha com erro"),
             }
         }
+        */
     } 
 } 
