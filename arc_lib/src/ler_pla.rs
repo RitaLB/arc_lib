@@ -81,6 +81,104 @@ pub mod ler_pla {
         }
     }
 
+
+    pub fn processar_pla(filename: &string) -> TabelaVerdade{
+        // instancia de tabela verdade para salvar os dados
+        let mut tabela_verdade = TabelaVerdade::new();
+        let mut linhas_tabela: Vec<&str> = Vec::new();
+        let mut pla_ordenado: Vec<&str> = Vec::new();
+        
+        let dados_pla = match ler_arquivo(filename) {
+            Ok(arquivo_pla) => processar_linhas(arquivo_pla),
+            Err(err) => {
+                eprintln!("Erro ao ler o arquivo: {}", err);
+                return TabelaVerdade::new();
+            }
+        };
+        let mut tabela_verdade= TabelaVerdade::new();
+        let mut linhas_tabela: vec<&str> = Vec::new();
+        let pla_ordenado : Vec<&str> = vec::new();
+        match dados_pla {
+            Ok(dados_pla) => {
+                tabela_verdade = dados_pla.0;
+                linhas_tabela = dados_pla.1;
+                pla_ordenado  = ordenar_pla(tabela_verdade, linhas_tabela)}
+            Err(err) => {
+                eprintln!("Erro ao processar pla: {}. Verifique se o PLA está conforme padrões", err);
+                TabelaVerdade::new() // Retorna uma tabela vazia em caso de erro
+            }
+        }
+
+        match pla_ordenado {
+            Ok(pla_ordenado) => salvar_tabela(pla_ordenado, &mut tabela_verdade),
+            Err(err) => {
+                eprintln!("Erro ao ordenar tabela: {}. Verifique se tabela está correta e completa.", err);
+                TabelaVerdade::new() // Retorna uma tabela vazia em caso de erro
+            }
+        }
+
+        Ok(tabela_verdade)
+    }
+
+    fn ler_arquivo(filename: &String)->Result<BufReader<File>, Box<dyn std::error::Error>>{
+        // Tenta abrir o arquivo em modo de leitura
+        let file = File::open(&filename)?;
+
+        // Cria um leitor de buffer para o arquivo
+        let reader = io::BufReader::new(file);
+        Ok(reader)
+    }
+
+    fn processar_linhas(reader : BufReader<File>) -> Result< (TabelaVerdade,Vec<&str>) , Box<dyn std::error::Error>> {
+        let dados_pla: (TabelaVerdade,Vec<&str>);
+        let minha_tabela: TabelaVerdade = TabelaVerdade::new();
+        let linhas_tabela : Vec<&str> = Vec::new();
+        for line_result in reader.lines() {
+            let linha = line_result?;
+            if let Some(primeiro_char) = linha.chars().nth(0) {
+                // verifica se é uma informação sobre a tabela, comentário ou dado da tabela
+                if primeiro_char =='.'{
+                    salvar_dado(linha, &mut minha_tabela);
+                } else if primeiro_char != '#' {
+                    //println!("{}", linha);
+                    linhas_tabela.push(linha);
+                }
+            }
+        Ok(())
+    }
+    fn ordenar_pla(minha_tabela : TabelaVerdade , linhas_tabela: Vec<&str>) -> Vec<&str>{
+        let numero_entradas = minha_tabela.n_inputs();
+        let mut pla_ordenado: Vec<&str> = Vec::new();
+    
+        for linha in linhas_tabela {
+            // Descobrindo posição na tabela (binário das entradas)
+            let string_posicao: String = linha
+                .chars()
+                .filter(|c| c.is_digit(10))
+                .take(numero_entradas)
+                .collect();
+    
+            // Transforma string de posição em um número
+            if !string_posicao.is_empty() {
+                let posicao: usize = usize::from_str_radix(&string_posicao, 2).unwrap();
+    
+                // Insere a linha na posição correspondente no vetor
+                pla_ordenado.insert(posicao, linha);
+            }
+        }
+    
+        pla_ordenado
+    }
+
+    fn salvar_tabela(pla_ordenado: Vec<&str> , tabela_verdade: &mut TabelaVerdade){
+        let mut i = 0;
+        while i< (pla_ordenado.len()){
+            let line = pla_ordenado[i];
+            salvar_linha_tabela(line, &mut tabela_verdade);
+        }
+    }
+
+    ////######################################## anterior:
     // Função principal que lê o arquivo e processa as linhas
     pub fn processar_pla(filename: &String) -> TabelaVerdade {
         match ler_arquivo(filename) {
@@ -91,7 +189,6 @@ pub mod ler_pla {
             }
         }
     }
-
     fn ler_arquivo(filename: &String)-> Result<TabelaVerdade, Box<dyn std::error::Error>>{
         
         // instancia de tabela verdade para salvar os dados
@@ -126,6 +223,7 @@ pub mod ler_pla {
         }
         Ok(())
     }
+
     fn salvar_linha_tabela(linha: &String, tabela_verdade: &mut TabelaVerdade){
         // saidas: Vec<Vec<u8>>, entradas: Vec<Vec<u8>>,
         let mut cont_i : usize = 0;
@@ -187,20 +285,5 @@ pub mod ler_pla {
             }
         }
 
-        /*
-        if let Some(identificador) = linha.chars().nth(1) {
-            let mut dado: usize = 0;
-            if string_dado.len() > 0{
-                dado = string_dado.parse().unwrap();
-            }
-            match identificador {
-                'p' => tabela_verdade.n_t_produtos = dado,
-                'i' => tabela_verdade.n_inputs = dado,
-                'o' => tabela_verdade.n_outputs = dado,
-                'e' => println!("fim do arquivo"),
-                _ => println!("linha com erro"),
-            }
-        }
-        */
     } 
 } 
