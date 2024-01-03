@@ -9,7 +9,7 @@ use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
 
 fn main() {
 
-    let filename = "src/pla7.txt";
+    let filename = "src/pla6.txt";
     let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());
     let saidas = minha_tabela.saidas();
     let entradas = minha_tabela.entradas();
