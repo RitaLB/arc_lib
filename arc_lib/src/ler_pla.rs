@@ -100,11 +100,12 @@ pub mod ler_pla {
             Ok(dados_pla) => {
                 tabela_verdade = dados_pla.0;
                 linhas_tabela = dados_pla.1;
+                /* 
                 println!("tabela desordenada:");
                 for linha in &linhas_tabela{
                     println!("{}", linha)
                 }
-                //pla_ordenado  = ordenar_pla(tabela_verdade, linhas_tabela)}
+                */
             }
             Err(err) => {
                 eprintln!("Erro ao processar pla: {}. Verifique se o PLA está conforme padrões", err);
@@ -114,10 +115,12 @@ pub mod ler_pla {
 
         match ordenar_pla(&tabela_verdade, linhas_tabela) {
             Ok(pla_ordenado) => {
+                /*
                 println!("tabela ordenada:");
                 for linha in &pla_ordenado{
                     println!("{}", linha)
                 };
+                */
                 salvar_tabela(pla_ordenado, &mut tabela_verdade);
 
             },

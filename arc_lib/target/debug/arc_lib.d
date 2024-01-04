@@ -1,1 +1,1 @@
-/home/ritinha/Documents/IC/arc_lib/target/debug/arc_lib: /home/ritinha/Documents/IC/arc_lib/src/find_arcos_v2.rs /home/ritinha/Documents/IC/arc_lib/src/ler_pla.rs /home/ritinha/Documents/IC/arc_lib/src/main.rs
+/home/ritinha/Documents/IC/arc_lib/target/debug/arc_lib: /home/ritinha/Documents/IC/arc_lib/src/find_arcos_v1.rs /home/ritinha/Documents/IC/arc_lib/src/ler_pla.rs /home/ritinha/Documents/IC/arc_lib/src/main.rs
