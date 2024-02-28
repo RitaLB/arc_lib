@@ -1,20 +1,9 @@
-mod find_arcos_v2;
-use find_arcos_v2 as fa2;
+
 fn main() {
-    let saidas = vec![vec![1, 1, 1, 0]];
-    let n_entradas = 2;
+    let vetor: Vec<(u8, u8)> = vec![(1, 2), (3, 4), (5, 6)];
 
-    let transicoes = fa2::find_arcos_v2(&saidas, n_entradas);
-
-    // Imprime as transições
-    for (i, transicao) in transicoes.iter().enumerate() {
-        print!("Transição {}: [", i);
-        for (j, res) in transicao.iter().enumerate() {
-            if j > 0 {
-                print!(", ");
-            }
-            print!("{}", res);
-        }
-        println!("]");
+    for (x, y) in &vetor {
+        println!("Primeiro item da tupla: {}", x);
+        println!("Segundo item da tupla: {}", y);
     }
 }
