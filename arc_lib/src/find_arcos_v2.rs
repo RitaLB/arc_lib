@@ -1,6 +1,6 @@
 pub mod find_arcos_v2 {
 
-    pub fn find_arcos_v2(saidas:  &Vec<Vec<u8>>, n_entradas: usize) -> Vec<Vec<usize>> {
+    pub fn find_arcos_v2(saidas:  &Vec<Vec<u8>>, n_entradas: usize, nbit_saida: usize) -> Vec<Vec<usize>> {
         // Número de pinos de entrada do circuito = n_entradas
         // Vetor contendo todas as transições que você deseja
         let mut transicoes: Vec<Vec<usize>> = Vec::new();
@@ -22,7 +22,7 @@ pub mod find_arcos_v2 {
                 // Ignoramos vetores menores que o analisado para evitar repetições
                 // Inserimos esse vetor como um dos vetores a "1 bit de distância de n"
                 if res > n {
-                    if saidas[n] != saidas[res] {
+                    if saidas[n][nbit_saida] != saidas[res][nbit_saida] {
                         transicoes[n].push(res); 
                     }
                 }

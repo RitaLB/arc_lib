@@ -1,9 +1,9 @@
 pub mod find_arcos_v1 {
     
-    pub fn find_arcos_v1(saidas:  &Vec<Vec<u8>>, entradas: &Vec<Vec<u8>>) -> Vec<(u8, u8)> {
+    pub fn find_arcos_v1(saidas:  &Vec<Vec<u8>>, entradas: &Vec<Vec<u8>>, nbit_saida: usize) -> Vec<(u8, u8)> {
         let linhas: usize = saidas.len();
         let mut arc: Vec<(u8, u8)> = criar_arcos(linhas);
-        check_mudanca_s(&mut arc,  &saidas);
+        check_mudanca_s(&mut arc,  &saidas, nbit_saida);
         check_entradas(&mut arc, &entradas);
         return arc;
     }   
@@ -25,12 +25,12 @@ pub mod find_arcos_v1 {
 
     // selecionar arcos de mudança por arcos de s
     // colocando o & eu ocnsigo modificar diretamente o objeto parâmetro ?
-    fn check_mudanca_s(arc: &mut Vec<(u8, u8)>, saidas:  &Vec<Vec<u8>> ){
+    fn check_mudanca_s(arc: &mut Vec<(u8, u8)>, saidas:  &Vec<Vec<u8>> , nbit_saida: usize){
         let mut i = 0;
         while i< (arc.len()){
             // while i< (arc.len() *  saidas.len()){
             let(l, h) = arc[i];
-            if saidas[l as usize] == saidas[h as usize]{
+            if saidas[l as usize][nbit_saida] == saidas[h as usize][nbit_saida]{
                 arc.remove(i);
             } else {
                 i = i+1;

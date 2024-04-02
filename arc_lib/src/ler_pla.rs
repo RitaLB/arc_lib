@@ -18,7 +18,7 @@ pub mod ler_pla {
             TabelaVerdade {
                 n_outputs: 0,
                 n_inputs: 0,
-                n_t_produtos: 0,
+                n_t_produtos: 0,    // Encontrando transições:
                 saidas: Vec::new(),
                 entradas: Vec::new(),
             }
