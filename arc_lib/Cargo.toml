@@ -3,6 +3,34 @@ name = "arc_lib"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "arc_lib_test"
+path = "src/bin.rs"
+
+[lib]
+name = "arc_lib"
+path = "src/lib/lib.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+criterion = "0.3"
+
+[dev-dependencies]
+glassbench = "0.3"
+iai = "0.1"
+
+[[bench]]
+name = "iai_bench"
+harness = false
+path = "benches/iai_bench.rs"
+
+[[bench]]
+name = "criterion_bench"
+harness = false 
+path = "benches/criterion_bench.rs"
+
+[[bench]]
+name = "glass_bench"
+harness = false 
+path = "benches/glass_bench.rs"

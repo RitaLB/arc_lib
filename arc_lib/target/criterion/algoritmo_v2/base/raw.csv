@@ -1,0 +1,11 @@
+group,function,value,throughput_num,throughput_type,sample_measured_value,unit,iteration_count
+algoritmo_v2,,,,,95850830.0,ns,6286
+algoritmo_v2,,,,,182554206.0,ns,12572
+algoritmo_v2,,,,,267183912.0,ns,18858
+algoritmo_v2,,,,,357467325.0,ns,25144
+algoritmo_v2,,,,,457702519.0,ns,31430
+algoritmo_v2,,,,,560905342.0,ns,37716
+algoritmo_v2,,,,,655932646.0,ns,44002
+algoritmo_v2,,,,,736083720.0,ns,50288
+algoritmo_v2,,,,,815748589.0,ns,56574
+algoritmo_v2,,,,,891678997.0,ns,62860
