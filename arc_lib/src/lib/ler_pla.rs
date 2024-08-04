@@ -2,14 +2,25 @@ pub mod ler_pla {
     use std::fs::File;
     use std::io::{self, BufRead};
     use std::io::BufReader;
+    use std::collections::HashMap;
 
     // structure para armazenar tabela verdade
+    /*
     pub struct TabelaVerdade {
         n_outputs: usize,
         n_inputs: usize,
         n_t_produtos: usize,
         saidas: Vec<Vec<u8>>,
         entradas: Vec<Vec<u8>>,
+    }
+    */
+
+    pub struct TabelaVerdade {
+
+        n_outputs: usize,
+        n_inputs: usize,
+        n_t_produtos: usize,
+        saidas: HashMap<i32, Vec<i32>>,
     }
     
     impl TabelaVerdade {
@@ -19,19 +30,19 @@ pub mod ler_pla {
                 n_outputs: 0,
                 n_inputs: 0,
                 n_t_produtos: 0,    // Encontrando transições:
-                saidas: Vec::new(),
-                entradas: Vec::new(),
+                saidas: HashMap::new(),
             }
         }
 
-        pub fn saidas(&self) -> &Vec<Vec<u8>>{
+        pub fn saidas(&self) -> &HashMap<i32, Vec<i32>>{
             &self.saidas
         }
 
+        /*/
         pub fn entradas(&self) -> &Vec<Vec<u8>>{
             &self.entradas
         }
-
+        */
         pub fn n_outputs(&self) -> usize {
             self.n_outputs
         }
@@ -44,11 +55,12 @@ pub mod ler_pla {
             self.n_t_produtos
         }
 
+        /*/
         // Método para imprimir a tabela verdade
         pub fn imprimir_tabela(&self) {
             // Imprimir cabeçalho
-            println!("self.entradas[0].len() = {}", self.entradas[0].len() );
-            println!("self.entradas.len() = {}", self.entradas.len() );
+            //println!("self.entradas[0].len() = {}", self.entradas[0].len() );
+            //println!("self.entradas.len() = {}", self.entradas.len() );
             print!(" ");
             for i in 0..self.n_inputs {
                 print!("I{}  ", i);
@@ -80,6 +92,7 @@ pub mod ler_pla {
                 println!();
             }
         }
+        */
     }
 
 
@@ -113,6 +126,7 @@ pub mod ler_pla {
             }
         }
 
+        /*
         match ordenar_pla(&tabela_verdade, linhas_tabela) {
             Ok(pla_ordenado) => {
                 /*
@@ -129,7 +143,8 @@ pub mod ler_pla {
                 return TabelaVerdade::new() // Retorna uma tabela vazia em caso de erro
             }
         }
-
+        */
+        salvar_tabela(linhas_tabela, &mut tabela_verdade);
         tabela_verdade
     }
 
@@ -171,7 +186,7 @@ pub mod ler_pla {
         println!("pla_ordenado.len() = {}", pla_ordenado.len());
     
         for linha in linhas_tabela {
-            println!("{}", linha   );
+            //println!("{}", linha   );
             // Descobrindo posição na tabela (binário das entradas)
             let string_posicao: String = linha.chars().filter(|c| c.is_digit(10)).take(numero_entradas).collect();
             
@@ -240,31 +255,37 @@ pub mod ler_pla {
     fn salvar_linha_tabela(linha: String, tabela_verdade: &mut TabelaVerdade){
         // saidas: Vec<Vec<u8>>, entradas: Vec<Vec<u8>>,
         let mut cont_i : usize = 0;
-        let mut entrada: Vec<u8>= vec![];
-        let mut saida: Vec<u8> = vec![];
+        let mut entrada: String = Default::default(); // será transformado em inteiro posteriormente
+        let mut saida: Vec<i32> = vec![];
         for caractere in linha.chars() {
             // Verifica se o caractere é um número (0-9) na tabela ASCII ou é indicador "-"
             if caractere.is_digit(10){
-                if cont_i < tabela_verdade.n_inputs {
+                if cont_i < tabela_verdade.n_inputs { //count_i é para verificar se já chegou na parte da linha referente a saída
+                    /*/
                     if let Some(inner_vector) = tabela_verdade.entradas.get_mut(cont_i) {
                     inner_vector.push(caractere as u8 - b'0');           
                     } else {
                         tabela_verdade.entradas.resize_with(cont_i + 1, Vec::new);
                         tabela_verdade.entradas[cont_i].push(caractere as u8 - b'0');
                     }
+                    */
+                    //let bit = (caractere as u8 - b'0');
+                    entrada.push(caractere);
                     cont_i = cont_i + 1;
                 } else {
-                    saida.push(caractere as u8 - b'0');
+                    saida.push((caractere as u8 - b'0')as i32);
                 }
             } else if caractere == '-'{
                 if cont_i <= tabela_verdade.n_inputs {
-                    entrada.push(0);
+                    entrada.push('0');
                     cont_i = cont_i + 1;
                 } else {
                     saida.push(0);
                 }
             }
         }
-        tabela_verdade.saidas.push(saida);
+        let entrada_int = i32::from_str_radix(&entrada, 2).expect("Not a valid binary number");
+        //tabela_verdade.saidas.push(saida);
+        tabela_verdade.saidas.insert(entrada_int, saida);
     }
 }

@@ -3,8 +3,8 @@ use std::env;
 extern crate criterion;
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use arc_lib::*;
-use crate::ler_pla::ler_pla::TabelaVerdade;
-use crate::ler_pla::ler_pla::processar_pla;
+use crate::ler_pla_antigo::ler_pla::TabelaVerdade;
+use crate::ler_pla_antigo::ler_pla::processar_pla;
 use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
 use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
 

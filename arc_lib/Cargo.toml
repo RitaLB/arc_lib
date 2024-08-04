@@ -20,10 +20,20 @@ criterion = "0.3"
 glassbench = "0.3"
 iai = "0.1"
 
+# Desativando otimizações dos benches
+#[profile.bench]
+#opt-level = 0
+#debug = true
+
 [[bench]]
 name = "iai_bench"
 harness = false
 path = "benches/iai_bench.rs"
+
+[[bench]]
+name = "iai_bench_2"
+harness = false
+path = "benches/iai_bench_2.rs"
 
 [[bench]]
 name = "criterion_bench"
@@ -34,3 +44,23 @@ path = "benches/criterion_bench.rs"
 name = "glass_bench"
 harness = false 
 path = "benches/glass_bench.rs"
+
+[[bench]]
+name = "valgrind_v1"
+harness = false 
+path = "benches/valgrind_v1.rs"
+
+[[bench]]
+name = "valgrind_v2"
+harness = false 
+path = "benches/valgrind_v2.rs"
+
+[[bench]]
+name = "heaptrack_v1"
+harness = false 
+path = "benches/heaptrack_v1.rs"
+
+[[bench]]
+name = "heaptrack_v2"
+harness = false 
+path = "benches/heaptrack_v2.rs"

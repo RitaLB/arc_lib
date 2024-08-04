@@ -1,6 +1,7 @@
 pub mod find_arcos_v2 {
+    use std::collections::HashMap;
 
-    pub fn find_arcos_v2(saidas:  &Vec<Vec<u8>>, n_entradas: usize, nbit_saida: usize) -> Vec<Vec<usize>> {
+    pub fn find_arcos_v2(saidas:  &HashMap<i32, Vec<i32>>, n_entradas: usize, nbit_saida: usize) -> Vec<Vec<usize>> {
         // Número de pinos de entrada do circuito = n_entradas
         // Vetor contendo todas as transições que você deseja
         let mut transicoes: Vec<Vec<usize>> = Vec::new();
@@ -22,9 +23,16 @@ pub mod find_arcos_v2 {
                 // Ignoramos vetores menores que o analisado para evitar repetições
                 // Inserimos esse vetor como um dos vetores a "1 bit de distância de n"
                 if res > n {
+                    /*
                     if saidas[n][nbit_saida] != saidas[res][nbit_saida] {
                         transicoes[n].push(res); 
                     }
+                    */
+                    if let (Some(saida_n), Some(saida_res)) = (saidas.get(&n), saidas.get(&res)) {
+                        if saida_n[nbit_saida] != saida_res[nbit_saida] {
+                            transicoes[n as usize].push(res as usize);
+                        }
+                    } 
                 }
             }
         }

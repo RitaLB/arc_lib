@@ -6,6 +6,7 @@ pub mod testes{
     use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
     use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
 
+    /*
     pub fn execute_v1(filename: &str){
 
         let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());
@@ -19,18 +20,20 @@ pub mod testes{
 
         //let duracao = Instant::now()- inicio;
 
-        println!("Tabela verdade:");
-        minha_tabela.imprimir_tabela();
+        //println!("Tabela verdade:");
+        //minha_tabela.imprimir_tabela();
 
         println!("Transições encontradas:");
-
+        println!("Number Of Transitions found: {}", transicoes.len());
+        
         for tupla in &transicoes {
             println!("({}, {})", tupla.0, tupla.1);
         }
-
+        
         //println!("Tempo de processamento: {} ns", duracao.as_nanos());
 
     }
+    */
 
     pub fn execute_v2(filename: &str){
         let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());
@@ -45,12 +48,12 @@ pub mod testes{
 
         //let duracao = fim - inicio;
 
-        println!("Tabela verdade:");
-        minha_tabela.imprimir_tabela();
+        //println!("Tabela verdade:");
+        //minha_tabela.imprimir_tabela();
 
         println!("Transições encontradas:");
 
-        println!("{}", transicoes.len());
+        
         for (i, transicao) in transicoes.iter().enumerate() {
             print!("Transição {}: [", i);
             for (j, res) in transicao.iter().enumerate() {
@@ -61,6 +64,8 @@ pub mod testes{
             }
             println!("]");
         }
+
+        
         //println!("Tempo de processamento: {} ns", duracao.as_nanos());
 
     }

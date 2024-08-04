@@ -3,15 +3,12 @@ use {
     glassbench::*,
     std::env,
     arc_lib::*,
-    crate::ler_pla::ler_pla::TabelaVerdade,
-    crate::ler_pla::ler_pla::processar_pla,
+    crate::ler_pla_antigo::ler_pla::TabelaVerdade,
+    crate::ler_pla_antigo::ler_pla::processar_pla,
     crate::find_arcos_v2::find_arcos_v2::find_arcos_v2,
     crate::find_arcos_v1::find_arcos_v1::find_arcos_v1,
 };
 
-pub const WARMUP_ITERATIONS: usize = 10;
-pub const ESTIMATE_ITERATIONS: u32 = 1000;
-pub const MINIMAL_ITERATIONS: u32 = 500;
 
 fn bench_find_arc_alg(bench: &mut Bench) {
     // Coletando dados da linha de comando
@@ -24,7 +21,7 @@ fn bench_find_arc_alg(bench: &mut Bench) {
     let entradas = minha_tabela.entradas();
     let n_entradas = minha_tabela.n_inputs();
 
-    bench.task("algotithm_v1", |task| {
+    bench.task("algorithm_v1", |task| {
         task.iter(|| {
             // Uso de pretend_used para garantir que os resultados não sejam otimizados
             pretend_used({
@@ -32,7 +29,7 @@ fn bench_find_arc_alg(bench: &mut Bench) {
             });
         });
     });
-    bench.task("algotithm_v2", |task| {
+    bench.task("algorithm_v2", |task| {
         task.iter(|| {
             pretend_used({
                 find_arcos_v2( &saidas, n_entradas, 0)

@@ -1,8 +1,8 @@
 use {
     std::env,
     arc_lib::*,
-    crate::ler_pla::ler_pla::TabelaVerdade,
-    crate::ler_pla::ler_pla::processar_pla,
+    crate::ler_pla_antigo::ler_pla::TabelaVerdade,
+    crate::ler_pla_antigo::ler_pla::processar_pla,
     crate::find_arcos_v2::find_arcos_v2::find_arcos_v2,
     crate::find_arcos_v1::find_arcos_v1::find_arcos_v1,
 };

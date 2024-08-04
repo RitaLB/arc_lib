@@ -1,0 +1,28 @@
+Algorithm 1: Find Arcs V1  
+
+Input: OL = Truth table output lines; 
+       I = Truth table input vectors; 
+       n_output = Number of output to be analyzed;
+Output: All relevant transition arcs
+
+1. k <- len(OL) // k receives number of truth table lines
+2. arcs <-  GenerateArcs(k) // All possible input vector pairs (g,h) 
+ 
+   // Selecting transition arcs where output changes
+3. foreach (g, h) ∈ arcs do
+4.     |	if OL[g][n_output] = OL[h][n_output] then
+5.     |	|  remove (g,h) arc from arcs
+       |        |_
+       |_
+  // Selecting transition arcs where only one input changes
+6. foreach (g,h) ∈ arcs do
+7.   | sum <- 0
+8.   | foreach input ∈ I do 
+9.   | |   sum <- sum + (input[g] ^ input[h])
+     | |_   
+10.  | if sum != 1 then
+11.  | |  remove (g,h) arc from arcs
+     | |_
+     |_
+12. return arcs
+
