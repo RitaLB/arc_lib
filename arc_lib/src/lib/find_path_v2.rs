@@ -73,8 +73,8 @@ pub mod find_path_v2{
         }
     
         if let Some((destiny, beginin)) = choosen_conection {
-            println!("{} -> {}", beginin, destiny);
-            println!("{:?}", arcs[destiny as usize]);
+            //println!("{} -> {}", beginin, destiny);
+            //println!("{:?}", arcs[destiny as usize]);
             arcs[destiny as usize][beginin as usize].update_historic(2); // 10 chegou
             internal_find_path(arcs, path, destiny, OF);
         }

@@ -1,4 +1,4 @@
-pub mod find_path_v2{
+pub mod find_path_v3{
     use std::vec;
     use std::collections::HashMap;
 
@@ -10,6 +10,7 @@ pub mod find_path_v2{
 
     pub fn find_path(arcs: &mut Vec<HashMap<i32,i32>>)-> Vec<i32>{
         let mut OF: Vec<i32> = build_OF(arcs); 
+        //println!("{:?}", OF);
         // OF: Vetor no qual cada posição representa um nodo e o valor representa o numero de conexões com saída em falso que ele tem.
         // numero de conexões vom 0 em false ( 0 ou 2) que determinado nodo tem (determinado pela posição). -1 representa que não há arcos para aquele nodo
         //let mut C: Vec<bool> = vec![false; arcs.len()]; // Vetor que armazena se o nodo já foi completdo ou não (Saida e entrada marcados)
@@ -26,39 +27,62 @@ pub mod find_path_v2{
 
 
     fn internal_find_path(arcs: &mut Vec<HashMap<i32,i32>>, path: &mut Vec<i32>, beginin: i32, OF: &mut Vec<i32>) {
-        let mut choosen_conection: Option<i32> = None;
+        let mut choosen_conection: Option<(i32, i32)> = None;
+        path.push(beginin);
     
         {
             let node_arcs = &mut arcs[beginin as usize];// percorre lista de asjascencias de cada nodo
-    
-            for (node, history) in node_arcs.iter_mut() {
-                if history == 0 {
-                    path.push(node);
-                    node_arcs.insert(*node, 1);// 01 saiu
-                    choosen_conection = Some(*node);
+            println!("{:?}", node_arcs);
+            for (node, history) in node_arcs.iter() {
+                //println!("{}", *node);
+                println!("node = {}, history = {}", *node, *history);
+                if *history == 0 {
+                    //path.push(*node);
+                    //node_arcs.insert(*node, 1);// 01 saiu
+                    choosen_conection = Some((*node, 1));
                     OF[beginin as usize] -= 1;
+                    println!(" begining = {} , node = {},  history = 0 , OF = {:?}",beginin, *node, *OF);
                     break;
-                } else if history == 2 {
+                } else if *history == 2 { // 10 chegou
                     let mut maior = *node;
                     for (node2, history2) in node_arcs.iter(){ // 2°.1 -> encontrar aquela que leva a vertice com maior OF
-                        if OF[node2] > OF[node_arcs[maior] as usize] {
+                        if OF[*node2 as usize] > OF[maior as usize] {
                             maior = *node2;
+                            //println!("mudou maior ");
                         }
                     }
-                    path.push(node_arcs[maior]);
-                    node_arcs.insert(maior, 3); // 11 chegou e saiu
-                    choosen_conection = Some((node_arcs[maior]));
+                    //path.push(maior);
+                    //node_arcs.insert(maior, 3); // 11 chegou e saiu
+                    choosen_conection = Some((maior, 3));
                     OF[beginin as usize] -= 1;
+                    println!("begining = {}, node = {}, history = 2,  OF = {:?}", beginin, maior, *OF);
                     break;
                 }
             }
         }
     
-        if let Some(destiny) = choosen_conection {
+        if let Some((destiny, new_history)) = choosen_conection {
             println!("{} -> {}", beginin, destiny);
-            println!("{:?}", arcs[destiny as usize]);
-            arcs[destiny as usize].insert(beginin, 2); // 10 chegou
+            //println!("{:?}", arcs[destiny as usize]);
+            println!{"historico antigo {}  ->  {} = {:?}",beginin,destiny,  arcs[beginin as usize][&destiny]};
+            println!{"historico antigo {}  ->  {} = {:?}",destiny, beginin, arcs[destiny as usize][&beginin]};
+
+            arcs[beginin as usize].insert(destiny, new_history); // 01 saiu
+
+            
+            let old_history = arcs[destiny as usize][&beginin];
+            if old_history == 0 {
+                arcs[destiny as usize].insert(beginin, 2); // 10 chegou
+            } else if old_history == 1 {
+                arcs[destiny as usize].insert(beginin, 3); // 11 chegou e saiu
+            }
+            println!{"historico begining {}  -> destiny {} = {:?}",beginin,destiny,  arcs[beginin as usize][&destiny]};
+            println!{"historico destiny {}  ->  begining {} = {:?}",destiny, beginin, arcs[destiny as usize][&beginin]};
+            //arcs[destiny as usize].insert(beginin, 2); // 10 chegou
             internal_find_path(arcs, path, destiny, OF);
+        } else {
+            println!("retornou");
+            return;
         }
     }
 
@@ -105,7 +129,7 @@ pub mod find_path_v2{
                 NC[i] = arcs[i].len() as i32;
             }
         }
-        println!("{:?}", NC);
+        //println!("{:?}", NC);
         return NC;
     }
 
@@ -131,7 +155,7 @@ pub mod find_path_v2{
                 arcs[b as usize].insert(a as i32, 0);
             }
         }
-        println!("{:?}", arcs);
+        //println!("{:?}", arcs);
         arcs
     }
 }

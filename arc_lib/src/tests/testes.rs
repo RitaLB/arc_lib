@@ -5,7 +5,7 @@ pub mod testes{
     use crate::ler_pla::ler_pla::processar_pla;
     use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
     use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
-    use crate::find_path_v2::find_path_v3::*;
+    use crate::find_path_v3::find_path_v3::*;
 
     /*
     pub fn execute_v1(filename: &str){
@@ -45,6 +45,7 @@ pub mod testes{
 
         let transicoes = find_arcos_v2(&saidas, n_entradas, 0); 
 
+        /*
         for (i, transicao) in transicoes.iter().enumerate() {
             print!("Transição {}: [", i);
             for (j, res) in transicao.iter().enumerate() {
@@ -55,9 +56,12 @@ pub mod testes{
             }
             println!("]");
         }
-        
+        */
 
         let mut arcos = build_arcs_v2(transicoes);
+        for numero in 0..arcos.len(){
+            println!("{} -> {:?}", numero, arcos[numero]);
+        }
         let path = find_path(&mut arcos);
         
         println!("Path: {:?}", path);
