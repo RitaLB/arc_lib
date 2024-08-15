@@ -1,54 +1,119 @@
+#![allow(non_snake_case)]
 pub mod find_path{
+    use std::vec;
+    use std::collections::HashMap;
 
+    #[allow(dead_code)]
     pub struct Sistem {
         num_att: u32,
         ciclos: u32,
-        //meus_arcos: HashMap<usize, NodeNumber>, 
+        meus_arcos: vec::Vec<HashMap<i32,i32>>, 
     }
 
-    pub struct Arc {
-        a: i32,
-        b: i32,
-        historic: u8, // se eu amentar ao invés de 00 01 10 11 eu posso ter 0000 0001 0010 0011 0100 0101 0110 0111 1000 1001 1010 1011 1100 1101 1110 1111, eu posso criar apenas 1 arco pra refresentar (a,b) e (b,a) e usar o historic para saber qual é qual
-    }
+    pub fn find_path(arcs: &mut Vec<HashMap<i32,i32>>)-> (Vec<i32>, i32){
+        let mut OF: Vec<i32> = build_OF(arcs); 
+        //println!("{:?}", OF);
+        // OF: Vetor no qual cada posição representa um nodo e o valor representa o numero de conexões com saída em falso que ele tem.
+        // numero de conexões vom 0 em false ( 0 ou 2) que determinado nodo tem (determinado pela posição). -1 representa que não há arcos para aquele nodo
+        //let mut C: Vec<bool> = vec![false; arcs.len()]; // Vetor que armazena se o nodo já foi completdo ou não (Saida e entrada marcados)
+        let mut path: Vec<i32> = Vec::new(); // Vetor que armazena o caminho que será percorrido
 
-    pub fn find_path(arcs : Vec<Arc>){
-        let mut NC: Vec<i32> = build_nc(arcs); // numero de conexões vom 0 em false ( 0 ou 2) que determinado nodo tem (determinado pela posição). -1 representa que não há arcos para aquele nodo
-
-    }
-
-    pub fn build_nc(arcs: Vec<Arc>) -> Vec<i32>{ // De inicio, todas as conexoes tem 0 false. 
-        let mut NC: Vec<i32> =  vec![-1; arcs.len()];
-        for node in arcs.iter(){
-            if NC[node.a as usize] == -1{
-                NC[node.a as usize] = 0;
+        let mut ciclos = 0;
+        // Enquanto houver arcos a serem percorridos
+        for node in  0 ..OF.len(){
+            if OF[node] > 0{
+                ciclos += 1;
+                internal_find_path(arcs, &mut path ,node as i32, &mut OF);
             }
-            if NC[node.b as usize] == -1{
-                NC[node.b as usize] = 0;
-            }
-            NC[node.a as usize] += 1;
-            //NC[node.b as usize] += 1;
         }
+        return (path, ciclos);
+    }
+
+
+    fn internal_find_path(arcs: &mut Vec<HashMap<i32,i32>>, path: &mut Vec<i32>, beginin: i32, OF: &mut Vec<i32>) {
+        let mut choosen_conection: Option<(i32, i32)> = None;
+        path.push(beginin);
+    
+            let node_arcs = &mut arcs[beginin as usize];// percorre lista de asjascencias de cada nodo
+            println!("{:?}", node_arcs);
+            let mut nodes2 = Vec::new();
+            let mut found0 = false;
+            for (node, history) in node_arcs.iter() {
+                //println!("{}", *node);
+                println!("node = {}, history = {}", *node, *history);
+                if *history == 0 {
+                    //path.push(*node);
+                    //node_arcs.insert(*node, 1);// 01 saiu
+                    choosen_conection = Some((*node, 1));
+                    OF[beginin as usize] -= 1;
+                    found0 = true;
+                    println!(" begining = {} , node = {},  history = 0 , OF = {:?}",beginin, *node, *OF);
+                    break;
+                } else if *history == 2 { // 10 chegou
+                    nodes2.push(*node);
+                }
+            }
+
+            if found0 == false && !nodes2.is_empty(){
+            let mut maior = nodes2[0];
+            for node in nodes2.iter(){
+                if OF[*node as usize] > OF[maior as usize] {
+                    maior = *node;
+                }
+            }
+            choosen_conection = Some((maior, 3));
+            OF[beginin as usize] -= 1;
+            println!("begining = {}, node = {}, history = 2,  OF = {:?}", beginin, maior, *OF);
+        }
+
+        if let Some((destiny, new_history)) = choosen_conection {
+            println!("{} -> {}", beginin, destiny);
+            //println!("{:?}", arcs[destiny as usize]);
+            println!{"historico antigo {}  ->  {} = {:?}",beginin,destiny,  arcs[beginin as usize][&destiny]};
+            println!{"historico antigo {}  ->  {} = {:?}",destiny, beginin, arcs[destiny as usize][&beginin]};
+
+            arcs[beginin as usize].insert(destiny, new_history); // 01 saiu
+
+            
+            let old_history = arcs[destiny as usize][&beginin];
+            if old_history == 0 {
+                arcs[destiny as usize].insert(beginin, 2); // 10 chegou
+            } else if old_history == 1 {
+                arcs[destiny as usize].insert(beginin, 3); // 11 chegou e saiu
+            }
+            println!{"historico begining {}  -> destiny {} = {:?}",beginin,destiny,  arcs[beginin as usize][&destiny]};
+            println!{"historico destiny {}  ->  begining {} = {:?}",destiny, beginin, arcs[destiny as usize][&beginin]};
+            //arcs[destiny as usize].insert(beginin, 2); // 10 chegou
+            internal_find_path(arcs, path, destiny, OF);
+        } else {
+            println!("retornou");
+            return;
+        }
+    }
+
+    pub fn build_OF(arcs: &mut Vec<HashMap<i32,i32>> ) -> Vec<i32>{ // De inicio, todas as conexoes tem 0 false. 
+        let mut NC: Vec<i32> =  vec![-1; arcs.len()];
+        for i in 0..arcs.len(){
+            if arcs[i].len() != 0{
+                NC[i] = arcs[i].len() as i32;
+            }
+        }
+        //println!("{:?}", NC);
         return NC;
     }
-
-    fn build_arcs_v1(init_arcs: Vec<Arc>) -> Vec<Arc>{ // cria os arcos de ida e volta
-        let mut arcs: Vec<Arc> = Vec::new();
-        for arc in init_arcs.iter(){
-            arcs.push(Arc{a: arc.a, b: arc.b, historic: 0});
-            arcs.push(Arc{a: arc.b, b: arc.a, historic: 0});
+    pub fn build_arcs_v2(init_arcs: Vec<Vec<usize>>) -> Vec<HashMap<i32,i32>> {
+        let mut arcs: Vec<HashMap<i32,i32>>= Vec::with_capacity(init_arcs.len());
+        for _ in 0..init_arcs.len() {
+            arcs.push(HashMap::new());
         }
-        return arcs;
-    }
-
-    fn build_arcs_v2(init_arcs:  Vec<Vec<i32>> ) -> Vec<Arc>{ // cria os arcos de ida e volta
-        let mut arcs: Vec<Arc> = Vec::new();
-        for a in 0 .. init_arcs.len(){
-            for b in init_arcs[a as usize].copy(){ //Ajeitar em find arcs v2 tipo para ser i32
-                arcs.push(Arc{a: a as i32, b: b, historic: 0});
-                arcs.push(Arc{a: b, b: a as i32, historic: 0});
+        for a in 0..init_arcs.len() {
+            for &b in &init_arcs[a] {
+                arcs[a].insert(b as i32, 0);
+                arcs[b as usize].insert(a as i32, 0);
             }
         }
-        return arcs;
+        //println!("{:?}", arcs);
+        arcs
     }
 }
+

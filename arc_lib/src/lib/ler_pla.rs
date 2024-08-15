@@ -104,7 +104,7 @@ pub mod ler_pla {
         let dados_pla = match ler_arquivo(filename) {
             Ok(arquivo_pla) => processar_linhas(arquivo_pla),
             Err(err) => {
-                eprintln!("Erro ao ler o arquivo: {}", err);
+                eprintln!("Erro ao ler o arquivo: {}.\n Nome do arq: {}", err, filename);
                 return TabelaVerdade::new();
             }
         };
@@ -177,7 +177,7 @@ pub mod ler_pla {
         Ok((minha_tabela, linhas_tabela))
     }
     
-
+    #[allow(dead_code)]
     fn ordenar_pla(minha_tabela: &TabelaVerdade, linhas_tabela: Vec<String>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
         let numero_entradas = minha_tabela.n_inputs();
         let n_produtos = linhas_tabela.len() ;
