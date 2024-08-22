@@ -104,7 +104,7 @@ pub mod ler_pla {
         let dados_pla = match ler_arquivo(filename) {
             Ok(arquivo_pla) => processar_linhas(arquivo_pla),
             Err(err) => {
-                eprintln!("Erro ao ler o arquivo: {}.\n Nome do arq: {}", err, filename);
+                eprintln!("Erro ao ler o arquivo: {}.\nNome do arq: {}", err, filename);
                 return TabelaVerdade::new();
             }
         };

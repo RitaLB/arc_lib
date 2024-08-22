@@ -9,6 +9,8 @@ fn main() {
     let versao_algoritmo = &args[1];
     let filename = &args[2];
     let file_path = format!("src/pla_examples/{}", filename);
+    
+
     env::set_var("TEST_FILENAME", &file_path);
 
     if versao_algoritmo =="1"{

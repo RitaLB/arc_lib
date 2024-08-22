@@ -7,6 +7,9 @@ pub mod testes{
     //use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
     use crate::find_path::find_path::*;
 
+    // TEST_FILENAME=src/pla_examples/10_c.txt cargo test
+
+    
     /*
     pub fn execute_v1(filename: &str){
 
@@ -38,7 +41,6 @@ pub mod testes{
 
     pub fn execute_v2(filename: &str){
         let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());
-        println!("{}", filename);
         let saidas = minha_tabela.saidas();
         let n_entradas = minha_tabela.n_inputs();
 
@@ -64,14 +66,21 @@ pub mod testes{
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
+    use std::env;
+
+    use crate::ler_pla::ler_pla::TabelaVerdade;
+    use crate::ler_pla::ler_pla::processar_pla;
+    use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
+    //use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
+    use crate::find_path::find_path::*;
 
     // Importa todas as funções do módulo pai (necessário para acessar a função 'soma')
     use super::*;
     fn check_used_arcs(init_arcs: &mut Vec<HashMap<i32,i32>>, path: Vec<i32>) -> bool {
-        let arcs = HashMap::new();
+        let mut arcs = HashMap::new();
         for a in 0.. init_arcs.len(){
             for b in init_arcs[a].keys(){
-                arcs.insert((a, *b), false);
+                arcs.insert((a as i32, *b), false);
             }
         }
 
@@ -91,7 +100,6 @@ mod tests {
         }
         return true;
     }
-    #[test]
 
     #[test]
     fn test_find_path() {
