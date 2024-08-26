@@ -1,9 +1,9 @@
 use {
     std::env,
     arc_lib::*,
-    crate::ler_pla_antigo::ler_pla::TabelaVerdade,
-    crate::ler_pla_antigo::ler_pla::processar_pla,
-    crate::find_arcos_v2::find_arcos_v2::find_arcos_v2,
+    crate::ler_pla_antigo::ler_pla_antigo::TabelaVerdadeAntiga,
+    crate::ler_pla_antigo::ler_pla_antigo::processar_pla_antigo,
+    crate::find_arcos_v2_antigo::find_arcos_v2::find_arcos_v2,
     crate::find_arcos_v1::find_arcos_v1::find_arcos_v1,
 };
 
@@ -14,7 +14,7 @@ fn bench_algorithm_1() {
     let file_path = format!("src/pla_examples/{}", filename);
 
     // Processar o arquivo PLA
-    let minha_tabela: TabelaVerdade = processar_pla(&file_path.to_string());
+    let minha_tabela: TabelaVerdadeAntiga = processar_pla_antigo(&file_path.to_string());
     let saidas = minha_tabela.saidas();
     let entradas = minha_tabela.entradas();
 
@@ -30,7 +30,7 @@ fn bench_algorithm_2() {
     let file_path = format!("src/pla_examples/{}", filename);
 
     // Processar o arquivo PLA
-    let minha_tabela: TabelaVerdade = processar_pla(&file_path.to_string());
+    let minha_tabela: TabelaVerdadeAntiga = processar_pla_antigo(&file_path.to_string());
     let saidas = minha_tabela.saidas();
     let n_entradas = minha_tabela.n_inputs();
     

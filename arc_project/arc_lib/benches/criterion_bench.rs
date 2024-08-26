@@ -3,9 +3,9 @@ use std::env;
 extern crate criterion;
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use arc_lib::*;
-use crate::ler_pla_antigo::ler_pla::TabelaVerdade;
-use crate::ler_pla_antigo::ler_pla::processar_pla;
-use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
+use crate::ler_pla_antigo::ler_pla_antigo::TabelaVerdadeAntiga;
+use crate::ler_pla_antigo::ler_pla_antigo::processar_pla_antigo;
+use crate::find_arcos_v2_antigo::find_arcos_v2::find_arcos_v2;
 use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
 
 fn benchmark(c: &mut Criterion) {
@@ -14,7 +14,7 @@ fn benchmark(c: &mut Criterion) {
     let file_path = format!("src/pla_examples/{}", filename);
 
     // Processar o arquivo PLA
-    let minha_tabela: TabelaVerdade = processar_pla(&file_path.to_string());
+    let minha_tabela: TabelaVerdadeAntiga = processar_pla_antigo(&file_path.to_string());
     let saidas = minha_tabela.saidas();
     let entradas = minha_tabela.entradas();
     let n_entradas = minha_tabela.n_inputs();

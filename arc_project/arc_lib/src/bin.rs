@@ -14,7 +14,7 @@ fn main() {
     env::set_var("TEST_FILENAME", &file_path);
 
     if versao_algoritmo =="1"{
-        //execute_v1(&file_path)
+        execute_v1(&file_path)
     } else if versao_algoritmo =="2"{
         execute_v2(&file_path)
     }

@@ -2,9 +2,11 @@ pub mod testes{
     //use arc_lib::*;
 
     use crate::ler_pla::ler_pla::TabelaVerdade;
+    use crate::ler_pla_antigo::ler_pla_antigo::TabelaVerdadeAntiga;
     use crate::ler_pla::ler_pla::processar_pla;
+    use crate::ler_pla_antigo::ler_pla_antigo::processar_pla_antigo;
     use crate::find_arcos_v2::find_arcos_v2::find_arcos_v2;
-    //use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
+    use crate::find_arcos_v1::find_arcos_v1::find_arcos_v1;
     use crate::find_path::find_path::*;
 
     // TEST_FILENAME=src/pla_examples/10_c.txt cargo test -- --nocapture
@@ -12,10 +14,10 @@ pub mod testes{
 
 
     
-    /*
+    
     pub fn execute_v1(filename: &str){
 
-        let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());
+        let minha_tabela: TabelaVerdadeAntiga = processar_pla_antigo(&filename.to_string());
         let saidas = minha_tabela.saidas();
         let entradas = minha_tabela.entradas();
 
@@ -39,7 +41,7 @@ pub mod testes{
         //println!("Tempo de processamento: {} ns", duracao.as_nanos());
 
     }
-    */
+    
 
     pub fn execute_v2(filename: &str){
         let minha_tabela: TabelaVerdade = processar_pla(&filename.to_string());

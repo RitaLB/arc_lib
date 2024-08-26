@@ -15,7 +15,7 @@ pub mod ler_pla_antigo {
     }
     */
 
-    pub struct TabelaVerdade {
+    pub struct TabelaVerdadeAntiga {
         n_outputs: usize,
         n_inputs: usize,
         n_t_produtos: usize,
@@ -23,10 +23,10 @@ pub mod ler_pla_antigo {
         entradas: Vec<Vec<u8>>,
     }
     
-    impl TabelaVerdade {
+    impl TabelaVerdadeAntiga {
         // Método para criar uma nova instância da tabela verdade com valores padrão
         pub fn new() -> Self {
-            TabelaVerdade {
+            TabelaVerdadeAntiga {
                 n_outputs: 0,
                 n_inputs: 0,
                 n_t_produtos: 0,    // Encontrando transições:
@@ -94,16 +94,16 @@ pub mod ler_pla_antigo {
     }
 
 
-    pub fn processar_pla(filename: &String) -> TabelaVerdade{
+    pub fn processar_pla_antigo(filename: &String) -> TabelaVerdadeAntiga{
         // instancia de tabela verdade para salvar os dados
-        let mut tabela_verdade: TabelaVerdade;
+        let mut tabela_verdade: TabelaVerdadeAntiga;
         let linhas_tabela: Vec<String>;
 
         let dados_pla = match ler_arquivo(filename) {
             Ok(arquivo_pla) => processar_linhas(arquivo_pla),
             Err(err) => {
                 eprintln!("Erro ao ler o arquivo: {}", err);
-                return TabelaVerdade::new();
+                return TabelaVerdadeAntiga::new();
             }
         };
 
@@ -120,7 +120,7 @@ pub mod ler_pla_antigo {
             }
             Err(err) => {
                 eprintln!("Erro ao processar pla: {}. Verifique se o PLA está conforme padrões", err);
-                return TabelaVerdade::new(); // Retorna uma tabela vazia em caso de erro
+                return TabelaVerdadeAntiga::new(); // Retorna uma tabela vazia em caso de erro
             }
         }
 
@@ -139,7 +139,7 @@ pub mod ler_pla_antigo {
             },
             Err(err) => {
                 eprintln!("Erro ao ordenar tabela: {}. Verifique se tabela está correta e completa.", err);
-                return TabelaVerdade::new() // Retorna uma tabela vazia em caso de erro
+                return TabelaVerdadeAntiga::new() // Retorna uma tabela vazia em caso de erro
             }
         }
 
@@ -155,8 +155,8 @@ pub mod ler_pla_antigo {
         Ok(reader)
     }
 
-    fn processar_linhas(reader: BufReader<File>) -> Result<(TabelaVerdade, Vec<String>), Box<dyn std::error::Error>> {
-        let mut minha_tabela: TabelaVerdade = TabelaVerdade::new();
+    fn processar_linhas(reader: BufReader<File>) -> Result<(TabelaVerdadeAntiga, Vec<String>), Box<dyn std::error::Error>> {
+        let mut minha_tabela: TabelaVerdadeAntiga = TabelaVerdadeAntiga::new();
         let mut linhas_tabela: Vec<String> = Vec::new();
     
         for line_result in reader.lines() {
@@ -176,7 +176,7 @@ pub mod ler_pla_antigo {
     }
     
 
-    fn ordenar_pla(minha_tabela: &TabelaVerdade, linhas_tabela: Vec<String>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+    fn ordenar_pla(minha_tabela: &TabelaVerdadeAntiga, linhas_tabela: Vec<String>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
         let numero_entradas = minha_tabela.n_inputs();
         let n_produtos = linhas_tabela.len() ;
         let mut pla_ordenado: Vec<Option<String>> = vec![None;n_produtos];
@@ -204,13 +204,13 @@ pub mod ler_pla_antigo {
     }
     
 
-    fn salvar_tabela(pla_ordenado: Vec<String> , tabela_verdade: &mut TabelaVerdade){
+    fn salvar_tabela(pla_ordenado: Vec<String> , tabela_verdade: &mut TabelaVerdadeAntiga){
         for line in pla_ordenado {
             salvar_linha_tabela(line, tabela_verdade);
         }
     }
 
-    fn salvar_dado(linha: &String, tabela_verdade: &mut TabelaVerdade){
+    fn salvar_dado(linha: &String, tabela_verdade: &mut TabelaVerdadeAntiga){
         let mut string_dado = String::new();
         let mut string_identificador = String::new();
         for caractere in linha.chars() {
@@ -250,7 +250,7 @@ pub mod ler_pla_antigo {
         }
     }
 
-    fn salvar_linha_tabela(linha: String, tabela_verdade: &mut TabelaVerdade){
+    fn salvar_linha_tabela(linha: String, tabela_verdade: &mut TabelaVerdadeAntiga){
         // saidas: Vec<Vec<u8>>, entradas: Vec<Vec<u8>>,
         let mut cont_i : usize = 0;
         let mut entrada: Vec<u8>= vec![];
