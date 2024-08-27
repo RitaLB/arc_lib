@@ -1,9 +1,0 @@
-[package]
-name = "testes"
-version = "0.1.0"
-edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-find_arcos_v2 = { path = "/home/ritinha/Documents/IC/projeto_2/algoritmos_at/algoritmo_v2" }

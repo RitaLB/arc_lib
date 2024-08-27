@@ -1,1 +1,0 @@
-/home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/algoritmo_v1/target/debug/algoritmo_v2: /home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/algoritmo_v1/src/find_arcos_v1.rs /home/rital/Documents/IC_ECL/projeto_2/algoritmos_at/algoritmo_v1/src/main.rs
