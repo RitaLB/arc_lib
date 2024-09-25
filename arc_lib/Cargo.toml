@@ -10,11 +10,19 @@ path = "src/bin.rs"
 [lib]
 name = "arc_lib"
 path = "src/lib/lib.rs"
-
+crate-type = ["cdylib", "rlib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata.maturin]
+name = "arc_lib_py"  # Nome da biblioteca Python que será gerada
+
+[build-dependencies]
+pyo3-build-config = "0.21"
 
 [dependencies]
 criterion = "0.3"
+#pyo3 = { version = "0.22", features = ["extension-module"] }
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
 
 [dev-dependencies]
 glassbench = "0.3"
@@ -64,3 +72,8 @@ path = "benches/heaptrack_v1.rs"
 name = "heaptrack_v2"
 harness = false 
 path = "benches/heaptrack_v2.rs"
+
+[[bench]]
+name = "find_path"
+harness = false 
+path = "benches/find_path_bench.rs"

@@ -1,0 +1,6 @@
+PLA_FILE=filename.txt cargo bench --bench bench_name
+
+example:
+PLA_FILE=3_c.txt cargo bench --bench glass_bench
+PLA_FILE=3_c.pla cargo bench --bench iai_bench
+

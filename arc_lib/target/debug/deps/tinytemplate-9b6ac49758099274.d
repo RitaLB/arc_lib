@@ -1,0 +1,10 @@
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/libtinytemplate-9b6ac49758099274.rmeta: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/compiler.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/error.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/instruction.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/syntax.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/template.rs
+
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/tinytemplate-9b6ac49758099274.d: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/compiler.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/error.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/instruction.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/syntax.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/template.rs
+
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/lib.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/compiler.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/error.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/instruction.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/syntax.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinytemplate-1.2.1/src/template.rs:

@@ -10,6 +10,11 @@ pub mod find_path{
         meus_arcos: vec::Vec<HashMap<i32,i32>>, 
     }
 
+    pub enum HistoryValue {
+        Str(&'static str),
+        Int(i32),
+    }
+// implementar retorno do histórico da busca com hashmap de enum 
     pub fn find_path(arcs: &mut Vec<HashMap<i32,i32>>)-> (Vec<i32>, i32){
         let mut OF: Vec<i32> = build_OF(arcs); 
         //println!("{:?}", OF);

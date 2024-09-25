@@ -2,7 +2,10 @@
 use std::env;
 extern crate criterion;
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use arc_lib::*;
+
+extern crate arc_lib as bench_lib;
+use bench_lib::*;
+//use arc_lib::*;
 use crate::ler_pla_antigo::ler_pla_antigo::TabelaVerdadeAntiga;
 use crate::ler_pla_antigo::ler_pla_antigo::processar_pla_antigo;
 use crate::find_arcos_v2_antigo::find_arcos_v2::find_arcos_v2;

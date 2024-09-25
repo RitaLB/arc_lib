@@ -1,10 +1,11 @@
 pub mod find_arcos_v2 {
     use std::collections::HashMap;
 
-    pub fn find_arcos_v2(saidas:  &HashMap<i32, Vec<i32>>, n_entradas: usize, nbit_saida: usize) -> Vec<Vec<usize>> {
+    pub fn find_arcos_v2(saidas:  &HashMap<i32, Vec<i32>>, n_entradas: usize, nbit_saida: usize) -> (Vec<Vec<usize>>, HashMap<(i32, i32), &str>) {
         // Número de pinos de entrada do circuito = n_entradas
         // Vetor contendo todas as transições que você deseja
         let mut transicoes: Vec<Vec<usize>> = Vec::new();
+        let mut arc_type = HashMap::new();
 
         // Itera por todas as entradas possíveis (1 << k é o mesmo que 2 elevado a k)
         // 2^n_entrada =  número de linhas da tabela verdade para n entradas
@@ -31,11 +32,18 @@ pub mod find_arcos_v2 {
                     if let (Some(saida_n), Some(saida_res)) = (saidas.get(&n), saidas.get(&res)) {
                         if saida_n[nbit_saida] != saida_res[nbit_saida] {
                             transicoes[n as usize].push(res as usize);
+                            if saidas[&n][nbit_saida] == 1 {
+                                arc_type.insert((n as i32, res as i32), "HL");
+                                arc_type.insert((res as i32, n as i32), "LH");
+                            } else {
+                            arc_type.insert((n as i32, res as i32), "LH");
+                            arc_type.insert((res as i32, n as i32), "HL");
+                            }
                         }
                     } 
                 }
             }
         }
-        transicoes
+        (transicoes, arc_type)
     }
 }

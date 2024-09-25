@@ -1,6 +1,8 @@
+extern crate arc_lib as bench_lib;
 use {
     std::env,
-    arc_lib::*,
+    bench_lib::*,
+    //arc_lib::*,
     criterion::{black_box, criterion_group, Criterion},
     crate::ler_pla_antigo::ler_pla_antigo::TabelaVerdadeAntiga,
     crate::ler_pla_antigo::ler_pla_antigo::processar_pla_antigo,

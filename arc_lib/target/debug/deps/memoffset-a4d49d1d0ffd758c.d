@@ -1,0 +1,10 @@
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/libmemoffset-a4d49d1d0ffd758c.rmeta: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/raw_field.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/offset_of.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/span_of.rs
+
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/libmemoffset-a4d49d1d0ffd758c.rlib: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/raw_field.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/offset_of.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/span_of.rs
+
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/memoffset-a4d49d1d0ffd758c.d: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/raw_field.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/offset_of.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/span_of.rs
+
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/lib.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/raw_field.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/offset_of.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memoffset-0.9.1/src/span_of.rs:

@@ -1,0 +1,11 @@
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/liburl-7eb1c46b397cbcd9.rmeta: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/host.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/origin.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/parser.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/path_segments.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/slicing.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/quirks.rs
+
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/deps/url-7eb1c46b397cbcd9.d: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/lib.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/host.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/origin.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/parser.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/path_segments.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/slicing.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/quirks.rs
+
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/lib.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/host.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/origin.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/parser.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/path_segments.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/slicing.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/url-2.5.2/src/quirks.rs:

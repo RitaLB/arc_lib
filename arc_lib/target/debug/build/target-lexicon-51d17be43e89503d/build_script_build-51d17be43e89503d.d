@@ -1,0 +1,8 @@
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/build/target-lexicon-51d17be43e89503d/build_script_build-51d17be43e89503d: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/build.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/data_model.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/triple.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/targets.rs
+
+/home/ritinha/Documents/Trabalho_Estudo/Projetos_programacao/arc_lib_project/my_code/arc_lib/target/debug/build/target-lexicon-51d17be43e89503d/build_script_build-51d17be43e89503d.d: /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/build.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/data_model.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/triple.rs /home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/targets.rs
+
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/build.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/data_model.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/triple.rs:
+/home/ritinha/.cargo/registry/src/index.crates.io-6f17d22bba15001f/target-lexicon-0.12.16/src/targets.rs:
