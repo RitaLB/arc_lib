@@ -1,7 +1,8 @@
 pub mod find_arcos_v2 {
     use std::collections::HashMap;
 
-    pub fn find_arcos_v2(saidas:  &HashMap<i32, Vec<i32>>, n_entradas: usize, nbit_saida: usize) -> (Vec<Vec<usize>>, HashMap<(i32, i32), &str>) {
+    // return: (arcos: Vec<Vec<usize>>, arc_type: (HashMap< key: (i32, i32), value: (&str, usize)>) onde key é o arco e value contém o tipo do arco e o bit que foi invertido (posição da entrada que muda)
+    pub fn find_arcos_v2(saidas:  &HashMap<i32, Vec<i32>>, n_entradas: usize, nbit_saida: usize) -> (Vec<Vec<usize>>, HashMap<(i32, i32),(&str, usize)>) {
         // Número de pinos de entrada do circuito = n_entradas
         // Vetor contendo todas as transições que você deseja
         let mut transicoes: Vec<Vec<usize>> = Vec::new();
@@ -33,11 +34,11 @@ pub mod find_arcos_v2 {
                         if saida_n[nbit_saida] != saida_res[nbit_saida] {
                             transicoes[n as usize].push(res as usize);
                             if saidas[&n][nbit_saida] == 1 {
-                                arc_type.insert((n as i32, res as i32), "HL");
-                                arc_type.insert((res as i32, n as i32), "LH");
+                                arc_type.insert((n as i32, res as i32), ("HL", bit));
+                                arc_type.insert((res as i32, n as i32), ("LH", bit));
                             } else {
-                            arc_type.insert((n as i32, res as i32), "LH");
-                            arc_type.insert((res as i32, n as i32), "HL");
+                            arc_type.insert((n as i32, res as i32), ("LH", bit));
+                            arc_type.insert((res as i32, n as i32), ("HL", bit));
                             }
                         }
                     } 
