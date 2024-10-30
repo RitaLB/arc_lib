@@ -1,0 +1,3 @@
+Va a gnd PWL (0.00n 0 0.01n 0.7 )
+Vb b gnd PWL (0.00n 0.7 5.99n 0.7 6.00n 0 )
+Vc c gnd PWL (0.00n 0 3.99n 0 )

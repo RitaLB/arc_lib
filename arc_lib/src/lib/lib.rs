@@ -5,6 +5,7 @@ pub mod ler_pla_antigo;
 pub mod ler_pla;
 pub mod find_path;
 pub mod python_integration;
+pub mod write_simulation_file;
 
 use pyo3::prelude::*;
 
