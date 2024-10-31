@@ -1,0 +1,14 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/serde_cbor-87ff92339165d0ed.rmeta: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/de.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/read.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/ser.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/tags.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/write.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/de.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/ser.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/serde_cbor-87ff92339165d0ed.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/de.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/read.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/ser.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/tags.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/write.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/de.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/ser.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/de.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/error.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/read.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/ser.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/tags.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/write.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/mod.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/de.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_cbor-0.11.2/src/value/ser.rs:

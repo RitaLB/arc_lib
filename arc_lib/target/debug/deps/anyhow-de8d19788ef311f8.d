@@ -1,0 +1,15 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/anyhow-de8d19788ef311f8.rmeta: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/backtrace.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/chain.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/context.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ensure.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/fmt.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/kind.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/macros.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ptr.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/wrapper.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/anyhow-de8d19788ef311f8.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/backtrace.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/chain.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/context.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ensure.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/fmt.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/kind.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/macros.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ptr.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/wrapper.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/backtrace.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/chain.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/context.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ensure.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/error.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/fmt.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/kind.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/macros.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/ptr.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/anyhow-1.0.86/src/wrapper.rs:

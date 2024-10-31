@@ -1,0 +1,15 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/csv-6e914c6b23446758.rmeta: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/byte_record.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/cookbook.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/debug.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/deserializer.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/reader.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/serializer.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/string_record.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/tutorial.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/writer.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/csv-6e914c6b23446758.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/byte_record.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/cookbook.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/debug.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/deserializer.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/error.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/reader.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/serializer.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/string_record.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/tutorial.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/writer.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/byte_record.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/cookbook.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/debug.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/deserializer.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/error.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/reader.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/serializer.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/string_record.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/tutorial.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.3.0/src/writer.rs:

@@ -91,34 +91,56 @@ fn write_simulation_path_in_blocks(simulation_path: &Vec<Vec<(f64, f64)>>, perio
     let final_values = get_final_values_blocks(simulation_path, duracao_bloco);
     let mut inicio_bloco= 0.0;
     let mut pos_valor_atual_entrada = vec![0; simulation_path.len() as usize];
+    let mut valor_inicio_cada_bloco : HashMap<char, Vec<(usize, f64)>> = HashMap::new();
     
     for block_num in 0 .. final_values.len(){
         let filename = "block".to_string() + &block_num.to_string() + ".cir";
         let mut file = File::create(filename)?;
         
         for (indice, entrada) in simulation_path.iter().enumerate(){
-            inicio_bloco = entrada[pos_valor_atual_entrada[indice] as usize].0;
+            if entrada.len() > pos_valor_atual_entrada[indice] as usize{
+                inicio_bloco = entrada[pos_valor_atual_entrada[indice] as usize].0;
+            }
+            //inicio_bloco = entrada[pos_valor_atual_entrada[indice] as usize].0;
+
+            if (inicio_bloco != 0.0) && (inicio_bloco - inicio_bloco.floor()) == 0.0{ // se for tempo inteiro, pula pro proximo
+                println!("inicio_bloco: {}", inicio_bloco);
+                pos_valor_atual_entrada[indice] += 1;
+                if entrada.len() > pos_valor_atual_entrada[indice] as usize{
+                    println!("novo inicio do bloco = {}", entrada[pos_valor_atual_entrada[indice] as usize].0);
+                    inicio_bloco = entrada[pos_valor_atual_entrada[indice] as usize].0.floor();
+                    println!("novo inicio do bloco = {}", inicio_bloco);
+                }
+                //inicio_bloco = entrada[pos_valor_atual_entrada[indice] as usize].0.floor();
+            }
+            else{
+                inicio_bloco = inicio_bloco.floor();
+            }
             // Gerar o nome da fonte. A primeira fonte será "Va", a segunda "Vb", e assim por diante.
             let entrie_name = (b'a' + indice as u8) as char;
             let nome_fonte = format!("V{}", entrie_name);
+            valor_inicio_cada_bloco.entry(entrie_name).or_insert_with(Vec::new).push((block_num,inicio_bloco));
             // Início da declaração, com o nome da fonte
             write!(file, "{} {} gnd PWL (", nome_fonte, entrie_name)?;
 
             for (tempo, valor) in entrada.iter(){
-                if (*tempo >= inicio_bloco) && (*tempo <= final_values[block_num as usize]){ // pegando tempos no intervalo do bloco
-                    let tempo_relativo = *tempo - inicio_bloco;
+                if (*tempo > inicio_bloco) && (*tempo <= final_values[block_num as usize]){ // pegando tempos no intervalo do bloco
+                    let mut tempo_relativo = *tempo - inicio_bloco;
+                    if tempo_relativo < 1.0{
+                        tempo_relativo = 0.0;
+                    }
                     let tempo_escrito = format!("{:.2}", tempo_relativo);
                     write!(file, "{}n {} ", tempo_escrito, valor)?;
                     pos_valor_atual_entrada[indice] += 1;
                 }
                 
             }
-            pos_valor_atual_entrada[indice] += 1;
+            //pos_valor_atual_entrada[indice] += 1;
             // Remover o último espaço e fechar a declaração
             write!(file, ")\n")?;
         }
     }
-
+    println!("valor_inicio_cada_bloco = {:?}", valor_inicio_cada_bloco);
 
     Ok(())
 }
@@ -136,21 +158,29 @@ fn get_final_values_blocks(simulation_path: &Vec<Vec<(f64, f64)>>, duracao_bloco
             let tempo_relativo = *tempo - (delimitador as f64);
             
             //println!("i: {}, tempo: {},  tempo_relativo: {}, ultimo_tempo_bloco[i]: {}", i, tempo,  tempo_relativo, ultimo_tempo_bloco[i as usize]);
-            if (*tempo > ultimo_tempo_bloco[i as usize]) & (tempo_relativo < duracao_bloco as f64){
-                ultimo_tempo_bloco[i as usize] = entrada[pos-1 as usize].0;
+            if (*tempo > ultimo_tempo_bloco[i as usize]) & (tempo_relativo <= duracao_bloco as f64){
+                ultimo_tempo_bloco[i as usize] = entrada[pos as usize].0;
                 //ultimo_tempo_bloco[i as usize] = *tempo;
                 //println!("mudou valor. Ultimo_tempo_bloco[{}]: {}",i,  ultimo_tempo_bloco[i as usize]);
 
 
             }
             else if tempo_relativo > duracao_bloco as f64{
+                println!("Ultimo tempo bloco [{}] - ultimo_tempo[i as usize].floor(): {:?}",i,  ultimo_tempo_bloco[i as usize] -ultimo_tempo_bloco[i as usize].floor());
+                if (ultimo_tempo_bloco[i as usize] -ultimo_tempo_bloco[i as usize].floor()) > 0.0{ // para na ultima finalização de periodo
+                    println!("Ultimo tempo bloco [{}]: {:?}",i,  ultimo_tempo_bloco[i as usize]);
+                    ultimo_tempo_bloco[i as usize] = entrada[pos-1 as usize].0;
+                    println!("mudou valor. Ultimo_tempo_bloco[{}]: {}",i,  ultimo_tempo_bloco[i as usize]);
+                }
                 i += 1; // novo bloco
                 delimitador = i * duracao_bloco;
+
             }
             pos += 1;
         }
+
     }
-    //println!("Ultimo tempo bloco: {:?}", ultimo_tempo_bloco);
+    println!("Ultimo tempo bloco: {:?}", ultimo_tempo_bloco);
     let final_values: Vec<f64> = ultimo_tempo_bloco.into_iter().filter(|&x| x != 0.0).collect();
     return final_values;
 

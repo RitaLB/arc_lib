@@ -1,0 +1,13 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/quote-43dc0a097c3c8743.rmeta: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ext.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/format.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ident_fragment.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/to_tokens.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/runtime.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/spanned.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/libquote-43dc0a097c3c8743.rlib: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ext.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/format.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ident_fragment.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/to_tokens.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/runtime.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/spanned.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/quote-43dc0a097c3c8743.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ext.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/format.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ident_fragment.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/to_tokens.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/runtime.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/spanned.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ext.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/format.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/ident_fragment.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/to_tokens.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/runtime.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.37/src/spanned.rs:

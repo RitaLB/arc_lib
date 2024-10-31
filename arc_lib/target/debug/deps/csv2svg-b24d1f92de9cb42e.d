@@ -1,0 +1,22 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/csv2svg-b24d1f92de9cb42e.rmeta: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/app/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/args.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/graph.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/html.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/nature.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/projector.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/raw.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/rect.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/scale.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/seq.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/skin.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/tbl.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/unoverlap.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/visibility.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/csv2svg-b24d1f92de9cb42e.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/app/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/mod.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/args.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/graph.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/html.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/nature.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/projector.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/raw.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/rect.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/scale.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/seq.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/skin.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/tbl.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/unoverlap.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/visibility.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/app/mod.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/mod.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/cli/args.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/graph.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/html.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/nature.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/projector.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/raw.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/rect.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/scale.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/seq.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/skin.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/tbl.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/unoverlap.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/csv2svg-0.1.12/src/visibility.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.1.12

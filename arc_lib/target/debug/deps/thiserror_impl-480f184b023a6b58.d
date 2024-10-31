@@ -1,0 +1,13 @@
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/libthiserror_impl-480f184b023a6b58.so: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/ast.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/attr.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/expand.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/fmt.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/generics.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/prop.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/span.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/valid.rs
+
+/home/rital/Documents/projetos/arc_lib/arc_lib/target/debug/deps/thiserror_impl-480f184b023a6b58.d: /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/lib.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/ast.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/attr.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/expand.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/fmt.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/generics.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/prop.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/span.rs /home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/valid.rs
+
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/lib.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/ast.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/attr.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/expand.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/fmt.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/generics.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/prop.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/span.rs:
+/home/rital/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.63/src/valid.rs:
