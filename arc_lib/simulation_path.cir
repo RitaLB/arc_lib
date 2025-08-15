@@ -1,0 +1,81 @@
+Va a gnd PWL (0n 0 2n 0 2.01n 0.7 6n 0.7 6.01n 0 10n 0 10.01n 0.7 14n 0.7 14.01n 0 20n 0 20.01n 0.7 24n 0.7 24.01n 0 28n 0 28.01n 0.7 32n 0.7 32.01n 0 42n 0 42.01n 0.7 52n 0.7 )
+Vb b gnd PWL (0n 0 4n 0 4.01n 0.7 12n 0.7 12.01n 0 18n 0 18.01n 0.7 26n 0.7 26.01n 0 36n 0 36.01n 0.7 40n 0.7 40.01n 0 46n 0 46.01n 0.7 50n 0.7 50.01n 0 52n 0 )
+Vc c gnd PWL (0n 0 8n 0 8.01n 0.7 16n 0.7 16.01n 0 22n 0 22.01n 0.7 30n 0.7 30.01n 0 34n 0 34.01n 0.7 38n 0.7 38.01n 0 44n 0 44.01n 0.7 48n 0.7 48.01n 0 52n 0 )
+
+* Medindo tempo de propagação:
+
+* Arco 00a
+.measure tran tplh_00a trig v(a) val= '0.5*0.7' rise=5 targ v(s) val= '0.5*0.7' rise=11
+
+* Arco 0b1
+.measure tran tphl_0b1 trig v(b) val= '0.5*0.7' fall=1 targ v(s) val='0.5*0.7' fall=1
+
+* Arco 01a
+.measure tran tplh_01a trig v(a) val= '0.5*0.7' rise=1 targ v(s) val= '0.5*0.7' rise=2
+
+* Arco c10
+.measure tran tphl_c10 trig v(c) val= '0.5*0.7' fall=1 targ v(s) val='0.5*0.7' fall=2
+
+* Arco 11a
+.measure tran tplh_11a trig v(a) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=3
+
+* Arco 1b1
+.measure tran tphl_1b1 trig v(b) val= '0.5*0.7' fall=1 targ v(s) val='0.5*0.7' fall=3
+
+* Arco 10a
+.measure tran tplh_10a trig v(a) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=4
+
+* Arco c00
+.measure tran tphl_c00 trig v(c) val= '0.5*0.7' fall=1 targ v(s) val='0.5*0.7' fall=4
+
+* Arco 0b0
+.measure tran tplh_0b0 trig v(b) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=5
+
+* Arco 01a
+.measure tran tphl_01a trig v(a) val= '0.5*0.7' fall=3 targ v(s) val='0.5*0.7' fall=5
+
+* Arco c11
+.measure tran tplh_c11 trig v(c) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=6
+
+* Arco 11a
+.measure tran tphl_11a trig v(a) val= '0.5*0.7' fall=3 targ v(s) val='0.5*0.7' fall=6
+
+* Arco 1b0
+.measure tran tplh_1b0 trig v(b) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=7
+
+* Arco 10a
+.measure tran tphl_10a trig v(a) val= '0.5*0.7' fall=4 targ v(s) val='0.5*0.7' fall=7
+
+* Arco c01
+.measure tran tplh_c01 trig v(c) val= '0.5*0.7' rise=2 targ v(s) val= '0.5*0.7' rise=8
+
+* Arco 00a
+.measure tran tphl_00a trig v(a) val= '0.5*0.7' fall=4 targ v(s) val='0.5*0.7' fall=8
+
+* Arco c00
+.measure tran tplh_c00 trig v(c) val= '0.5*0.7' rise=3 targ v(s) val= '0.5*0.7' rise=9
+
+* Arco 1b0
+.measure tran tphl_1b0 trig v(b) val= '0.5*0.7' fall=3 targ v(s) val='0.5*0.7' fall=9
+
+* Arco c10
+.measure tran tplh_c10 trig v(c) val= '0.5*0.7' rise=3 targ v(s) val= '0.5*0.7' rise=10
+
+* Arco 0b0
+.measure tran tphl_0b0 trig v(b) val= '0.5*0.7' fall=3 targ v(s) val='0.5*0.7' fall=10
+
+* Arco 00a
+.measure tran tplh_00a trig v(a) val= '0.5*0.7' rise=5 targ v(s) val= '0.5*0.7' rise=11
+
+* Arco c01
+.measure tran tphl_c01 trig v(c) val= '0.5*0.7' fall=4 targ v(s) val='0.5*0.7' fall=11
+
+* Arco 1b1
+.measure tran tplh_1b1 trig v(b) val= '0.5*0.7' rise=4 targ v(s) val= '0.5*0.7' rise=12
+
+* Arco c11
+.measure tran tphl_c11 trig v(c) val= '0.5*0.7' fall=4 targ v(s) val='0.5*0.7' fall=12
+
+* Arco 0b1
+.measure tran tplh_0b1 trig v(b) val= '0.5*0.7' rise=4 targ v(s) val= '0.5*0.7' rise=13
+

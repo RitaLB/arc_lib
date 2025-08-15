@@ -106,6 +106,8 @@ pub mod find_path{
         //println!("{:?}", NC);
         return NC;
     }
+
+    // Transforma um vetor de vetores de usize em um vetor de HashMap<i32,i32>
     pub fn build_arcs_v2(init_arcs: Vec<Vec<usize>>) -> Vec<HashMap<i32,i32>> {
         let mut arcs: Vec<HashMap<i32,i32>>= Vec::with_capacity(init_arcs.len());
         for _ in 0..init_arcs.len() {
